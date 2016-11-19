@@ -1,0 +1,24 @@
+{
+  "name": "home-base",
+  "homepage": "https://github.com/and-also-agency/home-base",
+  "description": "And Also Agency website",
+  "main": "index.html",
+  "authors": [
+    "Dani & Sam"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "neat": "^1.8.0",
+    "bourbon": "^4.2.7",
+    "font-awesome": "Font-Awesome#^4.7.0",
+    "refills": "^0.2.0"
+  }
+}

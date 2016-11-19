@@ -1,0 +1,21 @@
+{
+  "name": "home-base",
+  "version": "1.0.0",
+  "description": "And Also Agency",
+  "main": "index.html",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "author": "Dani & Sam",
+  "license": "MIT",
+  "homepage": "https://github.com/and-also-agency/home-base#readme"
+}
