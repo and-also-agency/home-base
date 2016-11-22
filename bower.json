@@ -19,6 +19,8 @@
     "neat": "^1.8.0",
     "bourbon": "^4.2.7",
     "font-awesome": "Font-Awesome#^4.7.0",
-    "refills": "^0.2.0"
+    "refills": "^0.2.0",
+    "normalize-css": "^5.0.0",
+    "bitters": "^1.5.0"
   }
 }

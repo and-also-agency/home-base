@@ -103,14 +103,34 @@ module.exports = function( grunt ) {
       }
     },
 
+    //==================//
+    // PostCSS compiler //
+    //==================//   
+
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'})
+        ]
+      },
+      dist: {
+        src: '<%= project.css %>/*.css'
+      }
+    },
+
     //==========================================//
     // File watch to trigger livereload on save //
     //==========================================//
     watch: {
       sass: {
-        files: '<%= project.scss %>/*.scss',
-        tasks: ['sass:app']
+        files: '<%= project.scss %>/**/*.scss',
+        tasks: ['sass:app', 'postcss:dist']
       },
+      // postcss {
+      //   files: '<%= project.css %>/*.css',
+      //   tasks: ['postcss:dist']
+      // },
       livereload: {
         files: [
             '<%= project.app %>/**/*.html',
@@ -131,6 +151,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-ftp-deploy');
   

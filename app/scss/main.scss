@@ -1,16 +1,29 @@
-// Modules and variables
-
-
-
-// Partials
-
 
 
 // Vendor Files
 
-@import "../_lib/bourbon/app/assets/stylesheets/bourbon";
-// @import "../_lib/neat/app/assets/stylesheets/neat";
+@import "vendor/normalize/normalize";
+@import "vendor/bourbon/bourbon";
+@import "vendor/neat/neat";
+@import "vendor/base/base";
+
+// Custom mix-ins
+
+// @import "mixins/custom-mixins";
+
+// Partials
+
+// @import "partials/partials";
+
+// Main styles
+
+// @import "modules/custom";
 
 body {
-	@include linear-gradient(to top, red, blue);
+	@include outer-container;
+}
+
+section {
+	@include border-style(dashed null solid);
+	display:flex;
 }
