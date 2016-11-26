@@ -1,4 +1,12 @@
-
 body {
-	// @include linear-gradient(to top, #8fdce5, #3dc3d1);
+}
+
+section#masthead {
+	@include outer-container(100%);
+	div {
+		@include span-columns(6);
+		@include media($sm) {
+			@include span-columns(4);
+		}
+	}
 }

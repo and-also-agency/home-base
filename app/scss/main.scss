@@ -9,21 +9,12 @@
 
 // Custom mix-ins
 
-// @import "mixins/custom-mixins";
+@import "mixins/custom-mixins";
 
 // Partials
 
-// @import "partials/partials";
+@import "partials/partials";
 
 // Main styles
 
-// @import "modules/custom";
-
-body {
-	@include outer-container;
-}
-
-section {
-	@include border-style(dashed null solid);
-	display:flex;
-}
+@import "modules/custom";
