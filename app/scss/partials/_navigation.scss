@@ -1,0 +1,102 @@
+/* Hides everything pushed outside of it */
+.site-wrap {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+/* Adds a transition and the resting translate state */
+.push-wrap {
+	min-height: 1000px;
+	position: relative;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/* Will animate the content to the right 275px revealing the hidden nav */
+.show-nav {
+	#body-nav {
+		background: black;
+		z-index: 1;
+		ul li a {
+			opacity: 1;
+		}
+	}
+}
+
+/* Positions the nav fixed below the push wrapper */
+nav {
+    width: 275px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.toggle-nav {
+	z-index: 9999999999999;
+	position: fixed;
+	display: block;
+	color: #fff;
+}
+
+#body-nav {
+	position: fixed;
+    overflow: hidden;
+    top: 0;
+    background: transparent;
+    text-align: left;
+    display: block;
+    -o-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    transition: background 500ms ease;
+    z-index: 999999999;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 0;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    ul {
+		position: absolute;
+		left: 0%;
+		width: 100%;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateX(-50%) translateY(-50%);
+		transform: translateY(-50%);
+    }
+}
+
+#body-nav ul li a {
+    display: block;
+    text-decoration: none!important;
+    height: 100px;
+    line-height: 100px;
+    font-size: 50px;
+    color: #fff;
+    opacity: 0;
+    border: none;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    transition: all 500ms ease;
+}

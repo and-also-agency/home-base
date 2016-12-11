@@ -111,7 +111,7 @@ module.exports = function( grunt ) {
       options: {
         map: true,
         processors: [
-          require('autoprefixer')({browsers: 'last 2 versions'})
+          require('autoprefixer')({browsers: 'last 4 versions'})
         ]
       },
       dist: {
@@ -135,7 +135,7 @@ module.exports = function( grunt ) {
         files: [
             '<%= project.app %>/**/*.html',
             '<%= project.css %>/*.css',
-            // '<%= project.scss %>/**/*.scss',
+            '<%= project.scss %>/**/*.scss',
             '<%= project.js %>/**/*.js'
         ],
         options: {

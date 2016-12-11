@@ -1,12 +1,31 @@
 body {
+	background-color: #fff;
+}
+
+h1 {
+	font-size: modular-scale(4);
+	font-weight: $header-weight;
 }
 
 section#masthead {
 	@include outer-container(100%);
+	min-height: 500px;
 	div {
 		@include span-columns(6);
+		background-color: #ccc;
 		@include media($sm) {
 			@include span-columns(4);
 		}
+		&:nth-of-type(2) {
+			background-color: lighten(#ccc, 10%);
+		}
+	}
+}
+
+section#home-detail {
+	@include outer-container(100%);
+	> div {
+		@include span-columns(6, block-collapse);
+		@include omega(2n);
 	}
 }

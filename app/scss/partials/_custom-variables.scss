@@ -1,3 +1,14 @@
+// Typography
+
+$and-also-font-stack: (
+  "proxima-nova",
+  "Helvetica",
+  "Arial",
+  sans-serif,
+);
+
+$header-weight: 800;
+
 // Breakpoints
 
 $xs: new-breakpoint(max-width 543px 4);
