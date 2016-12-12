@@ -9,6 +9,12 @@ $and-also-font-stack: (
 
 $header-weight: 800;
 
+// Colors
+
+$dark-gray: #1a1a19;
+$primary-gold: #baaf91;
+$secondary-gold: darken($primary-gold, 15%);
+
 // Breakpoints
 
 $xs: new-breakpoint(max-width 543px 4);

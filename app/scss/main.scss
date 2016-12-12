@@ -1,7 +1,3 @@
-// Partials
-
-@import "partials/partials";
-
 // Vendor Files
 
 @import "vendor/normalize/normalize";
@@ -12,6 +8,10 @@
 // Custom mix-ins
 
 @import "mixins/custom-mixins";
+
+// Partials
+
+@import "partials/partials";
 
 // Main styles
 

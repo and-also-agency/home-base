@@ -2,7 +2,8 @@
 // Wait for the DOM to be ready (all elements printed on page regardless if loaded or not)
 $(function() {
 	// Toggle navigation
-	$('.toggle-nav').click(function() {
+	$('#menu-toggle').click(function() {
+		$(this).toggleClass('open');
 		if ($('body').hasClass('show-nav')) {
 			$('body').removeClass('show-nav').addClass('hide-nav');
 

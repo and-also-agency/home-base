@@ -11,17 +11,13 @@
 	position: relative;
 	background-position: 50% 0;
 	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-ms-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 }
 
 /* Will animate the content to the right 275px revealing the hidden nav */
 .show-nav {
 	#body-nav {
-		background: black;
+		background: rgba($dark-gray, 0.95);
 		z-index: 1;
 		ul li a {
 			opacity: 1;
@@ -31,18 +27,10 @@
 
 /* Positions the nav fixed below the push wrapper */
 nav {
-    width: 275px;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-}
-
-.toggle-nav {
-	z-index: 9999999999999;
-	position: fixed;
-	display: block;
-	color: #fff;
 }
 
 #body-nav {
@@ -52,27 +40,15 @@ nav {
     background: transparent;
     text-align: left;
     display: block;
-    -o-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
-    -webkit-transition: background 500ms ease;
-    -moz-transition: background 500ms ease;
-    transition: background 500ms ease;
+    transition: background 1500ms ease;
     z-index: 999999999;
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     height: 100%;
     width: 100%;
     text-align: center;
     z-index: 0;
-    -moz-box-shadow: none!important;
-    -webkit-box-shadow: none!important;
     box-shadow: none!important;
     ul {
 		position: absolute;
@@ -84,19 +60,119 @@ nav {
 		-ms-transform: translateY(-50%);
 		-o-transform: translateX(-50%) translateY(-50%);
 		transform: translateY(-50%);
+        li {
+            a {
+                display: block;
+                text-decoration: none!important;
+                height: 100px;
+                line-height: 100px;
+                font-size: 50px;
+                color: #fff;
+                opacity: 0;
+                border: none;
+                transition: all 500ms ease;                
+            }
+        }
     }
 }
 
-#body-nav ul li a {
+#menu-toggle {
+    width: 70px;
+    height: 70px;
+    margin: 30px auto;
+    // position: relative;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid transparent;
+    border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
+    border-image-slice: 1;
+    z-index: 9999999999999;
+    position: fixed;
     display: block;
-    text-decoration: none!important;
-    height: 100px;
-    line-height: 100px;
-    font-size: 50px;
-    color: #fff;
-    opacity: 0;
-    border: none;
-    -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    transition: all 500ms ease;
+    right: 30px;
+    * {
+        transition: all 0.25s ease-in-out;
+    }
+    &:hover {
+
+    }
+    #hamburger {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        span {
+            width: 40px;
+            height: 1px;
+            position: relative;
+            top: 17px;
+            left: 15px;
+            margin: 8px 0;
+            &:nth-child(1) {
+                transition-delay: 0.5s;
+            }
+            &:nth-child(2) {
+                transition-delay: 0.625s;
+            }
+            &:nth-child(3) {
+                transition-delay: 0.75s;
+            }
+        }
+    }
+    #cross {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transform: rotate(45deg);
+        span {
+            &:nth-child(1) {
+                height: 0;
+                width: 1px;
+                position: absolute;
+                top: 15px;
+                left: 35px;
+                transition-delay: 0s;
+            }
+            &:nth-child(2) {
+                width: 0;
+                height: 1px;
+                position: absolute;
+                left: 15px;
+                top: 35px;
+                transition-delay: 0.25s;
+            }
+        }
+    }
+    span {
+        display: block;
+        background: $primary-gold;
+    }
+}
+
+#menu-toggle.open {
+    #hamburger {
+        span {
+            width: 0%;
+            &:nth-child(1) {
+                transition-delay: 0s;
+            }
+            &:nth-child(2) {
+                transition-delay: 0.125s;
+            }
+            &:nth-child(3) {
+                transition-delay: 0.25s;
+            }
+        }
+    }
+    #cross {
+        span {
+            &:nth-child(1) {
+                height: 40px;
+                transition-delay: 0.625s;
+            }
+            &:nth-child(2) {
+                width: 40px;
+                transition-delay: 0.375s;
+            }
+        }
+    }
 }
