@@ -1,31 +1,385 @@
 body {
-	background-color: #fff;
+	background-color: $almost-white;
 }
 
 h1 {
-	font-size: modular-scale(4);
+	font-size: modular-scale(5);
 	font-weight: $header-weight;
 }
 
+h2 {
+	font-size: modular-scale(4);
+	margin: 0 0 0.3em;
+}
+
+h3 {
+	font-size: modular-scale(3);
+}
+
+h4 {
+	font-family: $base-font-family;
+	font-weight: 600;
+}
+
+ul {
+
+}
+
+ul li {
+	font-size: 0.85em;
+}
+
+li strong {
+	font-weight: 500;
+}
+
+blockquote {
+	position: relative;
+	font-weight: 200;
+	font-style: italic;
+	&:before {
+		content: '“';
+		font-family: $heading-font-family;
+		color: $primary-gold;		
+		font-weight: 700;
+		font-size: 3em;
+		position: absolute;
+		top: 26px;
+		left: 0;
+		line-height: 0;
+		z-index: -1;
+		opacity: 0.7;
+	}
+}
+
+.underline {
+	&:after {
+		content: '• • •';
+		font-size: 0.4em;
+		display: block;
+		margin-top: 0.3em;
+		color: $primary-gold;
+	}
+}
+
+.portfolio {
+	background-size: cover !important;
+	a {
+		width: 100%;
+		height: 100%;
+		display: block;
+		text-align: center;
+		background-color: rgba($darker-gray, 0.5);
+	}
+	h4 {
+		padding-top: 30%;
+		margin-bottom: 0.2em;
+	}
+	span {
+		color: $light-gray;
+		display: inline-block;
+		text-transform: uppercase;
+		font-size: 0.75em;
+		font-weight: 600;
+		letter-spacing: 0.28em;		
+	}
+	h4, span {
+		opacity: 0;
+		transition: all 0.4s ease-in-out;
+	}
+	&:before, &:after {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		bottom: 30px;
+		left: 30px;
+		content: '';
+		opacity: 0;
+		transition: opacity 0.45s, transform 0.45s;	
+		pointer-events: none;
+	}
+	&:before {
+		border-top: 1px solid $primary-gold;
+		border-bottom: 1px solid $primary-gold;
+		transform: scale(0,1);
+	}
+	&:after {
+		border-left: 1px solid $primary-gold;
+		border-right: 1px solid $primary-gold;
+		transform: scale(1,0);
+	}
+	&:hover {
+		a {
+			background-color: rgba($darker-gray, 0.9);
+		}
+		h4 {
+			opacity: 1;
+			transform: translateY(8px);
+			transition-delay: 0.25s;
+		}
+		span {
+			opacity: 1;
+			transform: translateY(8px);
+			transition-delay: 0.3s;
+		}
+		&:before, &:after {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+}
+
+section {
+	padding: 5em 30px;
+}
+
+// home
+
 section#masthead {
 	@include outer-container(100%);
-	min-height: 500px;
+	background: linear-gradient(rgba($darker-gray, 0.1), rgba($darker-gray, 0.1)), url('../img/masthead-bg.jpg') center center;
+	background-size: cover;
+	color: $almost-white;
+	padding: 0;
+	header {
+		position: absolute;
+		left: 3%;
+		top: 48px;
+		object {
+			width: 60px;
+		}
+	}
 	div {
 		@include span-columns(6);
-		background-color: #ccc;
-		@include media($sm) {
-			@include span-columns(4);
-		}
-		&:nth-of-type(2) {
-			background-color: lighten(#ccc, 10%);
-		}
+		@include omega();
+		padding: 200px 3%;
+		// @include media($sm) {
+		// 	@include span-columns(4);
+		// }
+	}
+	h1 {
+		font-size: modular-scale(2);
+	}
+	#looper {
+		color: $primary-gold;
 	}
 }
 
 section#home-detail {
 	@include outer-container(100%);
 	> div {
-		@include span-columns(6, block-collapse);
-		@include omega(2n);
+		@include row();
 	}
+	article {
+		@include span-columns(8);
+		@include shift(2);
+		padding: 0;
+		text-align: center;
+		margin-bottom: 2em;
+	}
+	aside {
+		@include span-columns(3);
+		@include omega(4n);
+		position: relative;
+		> div {
+			margin: 0 0.5em;
+			padding: 3em 1.5em 1.5em;
+			// background: darken($almost-white, 10%);
+			position: relative;
+			text-align: center;
+			i {
+				font-size: 1.4em;
+				color: $almost-white;
+				// background: linear-gradient(45deg, $secondary-gold, $primary-gold);
+				background-color: $primary-gold;
+				width: 60px;
+				height: 60px;
+				border-radius: 30px;
+				line-height: 60px;
+				position: absolute;
+				top: -25px;
+				left: calc(50% - 30px);
+				z-index: 1;
+			}
+			h4 {
+				text-transform: uppercase;
+				font-size: 0.75em;
+				letter-spacing: 0.28em;
+			}
+			p {
+				font-size: 0.85em;
+			}
+			&:after, &:before {
+				content: '';
+				width: 100%;
+				height: 100%;
+				border: 1px solid $primary-gold;
+				position: absolute;
+				bottom: -9px;
+				right: -9px;
+			}
+			&:before {
+				bottom: 0;
+				right: 0;				
+			}
+		}
+	}
+}
+
+section#home-work {
+	@include outer-container(100%);
+	position: relative;
+	padding: 0;
+	h2 {
+		position: absolute;
+		left: 10px;
+		text-align: center;
+		display: inline-block;
+		color: $primary-gold;
+		top: 55px;
+		user-select: none;
+	}
+	> div {		
+	}
+	article {
+		position: relative;
+		min-height: 500px;
+		height: 500px;
+		width: 50%;
+		float: left;
+		display: block;
+		background: url('../img/portfolio/under-armour.jpg');
+		z-index: 2;
+		&:first-of-type {
+			h2 {
+				right: 10px;
+				left: auto;
+			}
+		}		
+	}	
+}
+
+section#home-testimonial {
+	@include outer-container();
+	> div {
+		@include span-columns(12);
+		text-align: center;
+		blockquote {
+			font-size: modular-scale(2);
+		}
+		p {
+			font-size: 0.75em;
+			font-weight: 600;
+			letter-spacing: 0.28em;
+			text-transform: uppercase;
+			color: $primary-gray;
+		}
+	}
+}
+
+section#bottom-cta {
+	padding: 0;
+	@include outer-container(100%);
+	background: $primary-gold;
+	text-align: center;
+	position: relative;
+	div {
+	}
+	a {
+		display: block;
+		width: 100%;
+		padding: 3em 0;
+		overflow: hidden;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 110%;
+			height: 100%;
+			transform: translateY(100%);
+			background: $secondary-gold;
+			opacity: 0;
+			transition: transform 0.5s ease, opacity 0.3s ease;			
+		}		
+		&:hover {
+			&:before {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}		
+	}
+	h2, span {
+		color: $darker-gray;
+		position: relative
+	}
+	h2 {
+		transition: transform 0.4s ease;
+		transition-delay: 0.15s;
+		transform: translateZ(0);
+		display: inline-block;
+		&:after {
+			position: absolute;
+			bottom: 16px;
+			right: -10px;
+			color: transparent;
+			content: '•';
+			text-shadow: transparent 0px 0px;
+			font-size: 0.2em;
+			pointer-events: none;
+			transition: color 0.2s ease;
+			line-height: 0;
+			opacity: 0;
+		}		
+	}
+	span {
+		display: block;
+		margin-bottom: 1em;
+	}
+	a:hover {
+		h2 {
+			color: $darker-gray;
+			&:after {
+				text-shadow: 10px 0 $darker-gray, 20px 0 $darker-gray;
+				color: $darker-gray;
+				opacity: 1;
+				transition: text-shadow 0.2s, opacity 0.2s;	
+				transition-delay: 0.2s;				
+			}
+		}
+	}
+}
+
+// About Us
+
+section#about-expertise {
+	background: $darker-gray;
+	color: $almost-white;
+	@include outer-container(100%);
+	article {
+		@include span-columns(4);
+	}
+	aside {
+		@include span-columns(8);
+		@include omega();
+	}
+	ul {
+		margin-left: 50px;
+		color: $primary-gold;
+	}
+	ul li {
+		padding: 20px 15px;
+		border-top: 1px solid rgba($primary-gold, 0.5);
+		text-transform: uppercase;
+		font-size: 1em;
+		&:last-of-type {
+			border-bottom: 1px solid rgba($primary-gold, 0.5);
+		}
+	}
+}
+
+section#about-story {
+	@include outer-container(100%);
+	background: $almost-white;
 }

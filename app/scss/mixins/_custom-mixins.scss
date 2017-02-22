@@ -1,0 +1,10 @@
+
+// circle
+
+@mixin circle($width, $bg-color, $border-color) {
+	width: $width;
+	height: $width;
+	background: $bg-color;
+	border: 1px solid $border-color;
+	border-radius: $width/2;
+}

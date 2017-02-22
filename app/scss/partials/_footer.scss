@@ -1,5 +1,32 @@
 
 footer {
-	width: 100%;
-	background-color: #000;
+	@include outer-container(100%);
+	background: $darker-gray; /* fallback for old browsers */
+	// background: linear-gradient(to left, $secondary-gold, $primary-gold); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding: 2em 0;
+	text-align: center;
+	a {
+		color: $primary-gray;
+		&:hover {
+			color: $primary-gold;
+		}
+	}
+	div {
+		@include span-columns(4);
+		&:nth-child(2) {
+			line-height: 0;
+		}
+		object {
+			width: 60px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				list-style-type: none;
+				display: inline-block;
+				margin-right: 25px;
+			}
+		}
+	}
 }

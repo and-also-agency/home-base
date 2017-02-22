@@ -1,0 +1,81 @@
+.btn {
+	display: inline-block;
+	background: $primary-gray;
+	padding: 10px 40px;
+	font-size: 0.75em;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: $primary-gray;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	transition-property: all;
+	transition-duration: 0.3s;
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $bright-gold;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		transition: transform 0.4s ease-in-out;
+	}
+	span {
+		transition: transform 0.15s ease;
+		transition-delay: 0.15s;
+		transform: translateZ(0);
+		display: inline-block;
+		&:after {
+			position: absolute;
+			bottom: 8px;
+			right: -10px;
+			color: transparent;
+			content: '•';
+			text-shadow: transparent 0px 0px;
+			font-size: 0.2em;
+			pointer-events: none;
+			transition: color 0.2s;
+			transition-delay: 0s;
+			transition-timing-function: ease;
+			line-height: 0;
+			opacity: 0;
+		}
+	}
+	&:hover {
+		&:before {
+			transform: scaleX(1);			
+		}
+		span {
+			transform: translateX(-2px);
+			&:after {
+				text-shadow: 8px 0 $almost-white, 16px 0 $almost-white;
+				color: $almost-white;
+				opacity: 1;
+				transition: text-shadow 0.35s, opacity 0.35s;	
+				transition-delay: 0.35s;		
+			}
+		}
+	}
+}
+
+.btn.big {
+	padding: 20px 50px;
+}
+
+.on-gold {
+	background: transparent;
+	border-color: $darker-gray;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	color: $darker-gray;
+	&:before {
+		background: rgba($darker-gray, 0.8);
+	}
+	&:hover {
+		color: $almost-white;
+	}
+}
