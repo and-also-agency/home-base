@@ -19,6 +19,8 @@ h3 {
 h4 {
 	font-family: $base-font-family;
 	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: $ls-medium;
 }
 
 ul {
@@ -26,7 +28,7 @@ ul {
 }
 
 ul li {
-	font-size: 0.85em;
+	// font-size: 0.85em;
 }
 
 li strong {
@@ -50,6 +52,19 @@ blockquote {
 		z-index: -1;
 		opacity: 0.7;
 	}
+}
+
+// Forms
+
+input#{$all-text-inputs} {
+	background-color: transparent;
+	border: 1px solid $almost-white;
+	border-width: 0 0 1px 0;
+	border-radius: 0;
+	height: 40px;
+	margin-bottom: 20px;
+	padding: 10px;
+	color: $primary-gold;
 }
 
 .underline {
@@ -81,7 +96,7 @@ blockquote {
 		text-transform: uppercase;
 		font-size: 0.75em;
 		font-weight: 600;
-		letter-spacing: 0.28em;		
+		letter-spacing: $ls-medium;		
 	}
 	h4, span {
 		opacity: 0;
@@ -157,8 +172,8 @@ section#masthead {
 		// 	@include span-columns(4);
 		// }
 	}
-	h1 {
-		font-size: modular-scale(2);
+	p {
+		font-size: 1.6em;
 	}
 	#looper {
 		color: $primary-gold;
@@ -200,14 +215,6 @@ section#home-detail {
 				top: -25px;
 				left: calc(50% - 30px);
 				z-index: 1;
-			}
-			h4 {
-				text-transform: uppercase;
-				font-size: 0.75em;
-				letter-spacing: 0.28em;
-			}
-			p {
-				font-size: 0.85em;
 			}
 			&:after, &:before {
 				content: '';
@@ -270,7 +277,7 @@ section#home-testimonial {
 		p {
 			font-size: 0.75em;
 			font-weight: 600;
-			letter-spacing: 0.28em;
+			letter-spacing: $ls-medium;
 			text-transform: uppercase;
 			color: $primary-gray;
 		}
@@ -372,7 +379,7 @@ section#about-expertise {
 		padding: 20px 15px;
 		border-top: 1px solid rgba($primary-gold, 0.5);
 		text-transform: uppercase;
-		font-size: 1em;
+		letter-spacing: $ls-medium;
 		&:last-of-type {
 			border-bottom: 1px solid rgba($primary-gold, 0.5);
 		}
@@ -382,4 +389,37 @@ section#about-expertise {
 section#about-story {
 	@include outer-container(100%);
 	background: $almost-white;
+	header {
+		@include row();
+		> div {
+			@include span-columns(12);
+			text-align: center;
+		}
+	}
+	article {
+		@include row();
+		padding-top: 4.5em;
+		> div:first-of-type {
+		@include span-columns(5);
+		@include shift(1);
+		}
+		> div:last-of-type {
+			@include span-columns(5);
+		}
+	}
+}
+
+// Contact
+
+section#contact-form {
+	background: $darker-gray;
+	color: $almost-white;
+	@include outer-container(100%);
+	article {
+		@include span-columns(4);
+	}
+	aside {
+		@include span-columns(8);
+		@include omega();
+	}
 }

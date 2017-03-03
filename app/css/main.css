@@ -539,7 +539,7 @@ textarea {
 }
 [type='color']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='email']:focus, [type='month']:focus, [type='number']:focus, [type='password']:focus, [type='search']:focus, [type='tel']:focus, [type='text']:focus, [type='time']:focus, [type='url']:focus, [type='week']:focus, input:not([type]):focus, textarea:focus {
   border-color: #baaf91;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(176, 164, 129, 0.7);
+  box-shadow: none;
   outline: none;
 }
 [type='color']:disabled, [type='date']:disabled, [type='datetime']:disabled, [type='datetime-local']:disabled, [type='email']:disabled, [type='month']:disabled, [type='number']:disabled, [type='password']:disabled, [type='search']:disabled, [type='tel']:disabled, [type='text']:disabled, [type='time']:disabled, [type='url']:disabled, [type='week']:disabled, input:not([type]):disabled, textarea:disabled {
@@ -655,7 +655,7 @@ th {
 body {
   color: #1a1a19;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
   line-height: 1.5;
   font-weight: 200;
 }
@@ -847,7 +847,6 @@ nav {
   left: 0;
   display: block;
   text-decoration: none !important;
-  font-size: 2.5em;
   color: #9b9b97;
   border: none;
 }
@@ -857,6 +856,7 @@ nav ul.main-nav {
 nav ul.main-nav li {
   height: 100px;
   line-height: 100px;
+  font-size: 2.8em;
 }
 nav ul.main-nav a {
   position: relative;
@@ -867,7 +867,7 @@ nav ul.main-nav a:hover {
 }
 nav ul.main-nav a:before {
   position: absolute;
-  bottom: 18px;
+  bottom: 17px;
   right: -10px;
   color: transparent;
   content: '•';
@@ -883,20 +883,20 @@ nav ul.main-nav a:hover:before {
 }
 nav h5 {
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  font-size: 0.2em;
-  font-weight: 300;
+  font-size: 0.66em;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   margin: 0;
 }
 nav span {
   color: #f3f3f2;
-  font-size: 0.5em;
+  font-size: 1.75em;
   display: block;
   margin-bottom: 30px;
 }
 nav ul.social {
-  font-size: 0.45em;
+  font-size: 1.45em;
 }
 nav ul.social li {
   display: inline;
@@ -1088,10 +1088,8 @@ h3 {
 h4 {
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
   font-weight: 600;
-}
-
-ul li {
-  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 li strong {
@@ -1115,6 +1113,17 @@ blockquote:before {
   line-height: 0;
   z-index: -1;
   opacity: 0.7;
+}
+
+input[type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='month'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'], [type='week'], input:not([type]), textarea {
+  background-color: transparent;
+  border: 1px solid #f3f3f2;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #baaf91;
 }
 
 .underline:after {
@@ -1145,7 +1154,7 @@ blockquote:before {
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.2em;
 }
 .portfolio h4, .portfolio span {
   opacity: 0;
@@ -1239,8 +1248,8 @@ section#masthead div {
 section#masthead div:last-child {
   margin-right: 0;
 }
-section#masthead h1 {
-  font-size: 1.5625em;
+section#masthead p {
+  font-size: 1.6em;
 }
 section#masthead #looper {
   color: #baaf91;
@@ -1311,14 +1320,6 @@ section#home-detail aside > div i {
   top: -25px;
   left: calc(50% - 30px);
   z-index: 1;
-}
-section#home-detail aside > div h4 {
-  text-transform: uppercase;
-  font-size: 0.75em;
-  letter-spacing: 0.28em;
-}
-section#home-detail aside > div p {
-  font-size: 0.85em;
 }
 section#home-detail aside > div:after, section#home-detail aside > div:before {
   content: '';
@@ -1399,7 +1400,7 @@ section#home-testimonial > div blockquote {
 section#home-testimonial > div p {
   font-size: 0.75em;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #5b5b58;
 }
@@ -1527,7 +1528,7 @@ section#about-expertise ul li {
   padding: 20px 15px;
   border-top: 1px solid rgba(186, 175, 145, 0.5);
   text-transform: uppercase;
-  font-size: 1em;
+  letter-spacing: 0.2em;
 }
 section#about-expertise ul li:last-of-type {
   border-bottom: 1px solid rgba(186, 175, 145, 0.5);
@@ -1543,6 +1544,84 @@ section#about-story::after {
   clear: both;
   content: "";
   display: block;
+}
+section#about-story header {
+  display: block;
+}
+section#about-story header::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section#about-story header > div {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  text-align: center;
+}
+section#about-story header > div:last-child {
+  margin-right: 0;
+}
+section#about-story article {
+  display: block;
+  padding-top: 4.5em;
+}
+section#about-story article::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section#about-story article > div:first-of-type {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  margin-left: 8.5298%;
+}
+section#about-story article > div:first-of-type:last-child {
+  margin-right: 0;
+}
+section#about-story article > div:last-of-type {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+}
+section#about-story article > div:last-of-type:last-child {
+  margin-right: 0;
+}
+
+section#contact-form {
+  background: #1a1a19;
+  color: #f3f3f2;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+section#contact-form::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section#contact-form article {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+section#contact-form article:last-child {
+  margin-right: 0;
+}
+section#contact-form aside {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-right: 0;
+}
+section#contact-form aside:last-child {
+  margin-right: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

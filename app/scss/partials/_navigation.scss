@@ -7,136 +7,136 @@
 
 /* Positions the nav fixed below the push wrapper */
 nav {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: block;
-    text-decoration: none!important;
-    font-size: 2.5em;
-    color: $light-gray;
-    border: none;    
-    ul.main-nav {
-        font-family: $freight;
-        li {
-            height: 100px;
-            line-height: 100px;            
-        }
-        a {
-            position: relative;
-            color: $primary-gold;
-            &:hover {
-                color: $secondary-gold;
-            }
-            &:before {
-                position: absolute;
-                bottom: 18px;
-                right: -10px;
-                color: transparent;
-                content: '•';
-                text-shadow: transparent 0px 0px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: block;
+	text-decoration: none!important;
+	color: $light-gray;
+	border: none;    
+	ul.main-nav {
+		font-family: $freight;
+		li {
+			height: 100px;
+			line-height: 100px;
+			font-size: 2.8em;          
+		}
+		a {
+			position: relative;
+			color: $primary-gold;
+			&:hover {
+				color: $secondary-gold;
+			}
+			&:before {
+				position: absolute;
+				bottom: 17px;
+				right: -10px;
+				color: transparent;
+				content: '•';
+				text-shadow: transparent 0px 0px;
                 font-size: 0.2em;
                 pointer-events: none;
                 transition: text-shadow 0.3s, color 0.3s;
                 line-height: 0;
             }
             &:hover {
-                &:before {
-                    text-shadow: 10px 0 $secondary-gold, 20px 0 $secondary-gold;
-                    color: $secondary-gold;
-                }
+            	&:before {
+            		text-shadow: 10px 0 $secondary-gold, 20px 0 $secondary-gold;
+            		color: $secondary-gold;
+            	}
             }
         }
     }
     h5 {
-        font-family: $base-font-family;
-        font-size: 0.2em;
-        font-weight: 300;
-        text-transform: uppercase;
-        letter-spacing: 0.3em;
-        margin: 0;
+    	font-family: $base-font-family;
+    	font-size: 0.66em;
+    	font-weight: 500;
+    	text-transform: uppercase;
+    	letter-spacing: 0.3em;
+    	margin: 0;
     }
     span {
-        color: $almost-white;
-        font-size: 0.5em;
-        display: block;
-        margin-bottom: 30px;
+    	color: $almost-white;
+    	font-size: 1.75em;
+    	display: block;
+    	margin-bottom: 30px;
     }
     ul.social {
-        font-size: 0.45em;
-        li {
-            display: inline;
-            list-style-type: none;
-            padding-right: 20px;
-            line-height: 0;
-        }
+    	font-size: 1.45em;
+    	li {
+    		display: inline;
+    		list-style-type: none;
+    		padding-right: 20px;
+    		line-height: 0;
+    	}
     }
 }
 
 #body-nav {
 	position: fixed;
-    overflow: hidden;
-    top: 0;
-    background: transparent;
-    text-align: left;
-    display: block;
-    transform: translate3d(0,0,0);
-    transition: background 1200ms ease;
-    -webkit-touch-callout: none;
-    user-select: none;
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    z-index: -1;
-    box-shadow: none!important;
-    transition-delay: (0.5s);
-    > div {
-        @include outer-container(100%);
+	overflow: hidden;
+	top: 0;
+	background: transparent;
+	text-align: left;
+	display: block;
+	transform: translate3d(0,0,0);
+	transition: background 1200ms ease;
+	-webkit-touch-callout: none;
+	user-select: none;
+	height: 100%;
+	width: 100%;
+	text-align: left;
+	z-index: -1;
+	box-shadow: none!important;
+	transition-delay: (0.5s);
+	> div {
+		@include outer-container(100%);
 		position: absolute;
 		left: 0%;
 		width: 100%;
 		top: 50%;
 		transform: translateY(-50%);
-        > div {
-            @include span-columns(3);
-            opacity: 0;
-            transition: all 1000ms ease;
-            transition-delay: (0.2s);
-            &:nth-child(1) {
-                @include shift(3);
-                border-right: 1px solid rgba($light-gray, 0.2);
-            }
-            &:nth-child(2) {
-                margin-top: 60px;
-            }
-            a, h5 {
-            }
-        }
-    }
+		> div {
+			@include span-columns(3);
+			opacity: 0;
+			transition: all 1000ms ease;
+			transition-delay: (0.2s);
+			&:nth-child(1) {
+				@include shift(3);
+				border-right: 1px solid rgba($light-gray, 0.2);
+			}
+			&:nth-child(2) {
+				margin-top: 60px;
+			}
+			a, h5 {
+			}
+		}
+	}
 }
 
 .show-nav {
-    #body-nav {
-        background: rgba($darker-gray, 0.95);
-        z-index: 101;
-        transition-delay: (0s);
-        > div > div {
-            opacity: 1;
-        }
-    }
+	#body-nav {
+		background: rgba($darker-gray, 0.95);
+		z-index: 101;
+		transition-delay: (0s);
+		> div > div {
+			opacity: 1;
+		}
+	}
 }
 
 .hide-nav {
-    #body-nav {
-        z-index: 101;
-    }
+	#body-nav {
+		z-index: 101;
+	}
 }
 
 // Hamburger
 #menu-toggle {
-    width: 70px;
-    height: 70px;
-    margin: 30px auto;
+	width: 70px;
+	height: 70px;
+	margin: 30px auto;
     // position: relative;
     cursor: pointer;
     background: transparent;
@@ -149,85 +149,85 @@ nav {
     right: 30px;
     overflow: hidden;
     * {
-        transition: all 0.25s ease-in-out;
+    	transition: all 0.25s ease-in-out;
     }
     #hamburger {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        span {
-            width: 40px;
-            height: 1px;
-            position: relative;
-            top: 17px;
-            left: 15px;
-            margin: 8px 0;
-            &:nth-child(1) {
-                transition-delay: 0.5s;
-            }
-            &:nth-child(2) {
-                transition-delay: 0.625s;
-            }
-            &:nth-child(3) {
-                transition-delay: 0.75s;
-            }
-        }
+    	position: absolute;
+    	height: 100%;
+    	width: 100%;
+    	span {
+    		width: 40px;
+    		height: 1px;
+    		position: relative;
+    		top: 17px;
+    		left: 15px;
+    		margin: 8px 0;
+    		&:nth-child(1) {
+    			transition-delay: 0.5s;
+    		}
+    		&:nth-child(2) {
+    			transition-delay: 0.625s;
+    		}
+    		&:nth-child(3) {
+    			transition-delay: 0.75s;
+    		}
+    	}
     }
     #cross {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        transform: rotate(45deg);
-        span {
-            &:nth-child(1) {
-                height: 0;
-                width: 1px;
-                position: absolute;
-                top: 15px;
-                left: 35px;
-                transition-delay: 0s;
-            }
-            &:nth-child(2) {
-                width: 0;
-                height: 1px;
-                position: absolute;
-                left: 15px;
-                top: 35px;
-                transition-delay: 0.25s;
-            }
-        }
+    	position: absolute;
+    	height: 100%;
+    	width: 100%;
+    	transform: rotate(45deg);
+    	span {
+    		&:nth-child(1) {
+    			height: 0;
+    			width: 1px;
+    			position: absolute;
+    			top: 15px;
+    			left: 35px;
+    			transition-delay: 0s;
+    		}
+    		&:nth-child(2) {
+    			width: 0;
+    			height: 1px;
+    			position: absolute;
+    			left: 15px;
+    			top: 35px;
+    			transition-delay: 0.25s;
+    		}
+    	}
     }
     span {
-        display: block;
-        background: $primary-gold;
+    	display: block;
+    	background: $primary-gold;
     }
 }
 
 .show-nav #menu-toggle {
-    #hamburger {
-        span {
-            width: 0;
-            &:nth-child(1) {
-                transition-delay: 0s;
-            }
-            &:nth-child(2) {
-                transition-delay: 0.125s;
-            }
-            &:nth-child(3) {
-                transition-delay: 0.25s;
-            }
-        }
-    }
-    #cross {
-        span {
-            &:nth-child(1) {
-                height: 40px;
-                transition-delay: 0.625s;
-            }
-            &:nth-child(2) {
-                width: 40px;
-                transition-delay: 0.375s;
-            }
-        }
-    }
+	#hamburger {
+		span {
+			width: 0;
+			&:nth-child(1) {
+				transition-delay: 0s;
+			}
+			&:nth-child(2) {
+				transition-delay: 0.125s;
+			}
+			&:nth-child(3) {
+				transition-delay: 0.25s;
+			}
+		}
+	}
+	#cross {
+		span {
+			&:nth-child(1) {
+				height: 40px;
+				transition-delay: 0.625s;
+			}
+			&:nth-child(2) {
+				width: 40px;
+				transition-delay: 0.375s;
+			}
+		}
+	}
 }
