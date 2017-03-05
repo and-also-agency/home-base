@@ -30,6 +30,12 @@ $(function() {
 		});
 	}, 3000);
 
+	// Splash page
+
+	$('#splash-content').on('mouseover', function() {
+		$(this).closest('section').addClass('splash-hover');
+	});
+
 });
 
 // Toggle with hitting of ESC
