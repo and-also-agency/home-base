@@ -1843,6 +1843,63 @@ section#about-story article object {
   margin: 0 auto;
 }
 
+section#about-us {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+section#about-us::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section#about-us > div {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+}
+section#about-us > div:last-child {
+  margin-right: 0;
+}
+section#about-us article {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+section#about-us article:last-child {
+  margin-right: 0;
+}
+section#about-us article::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section#about-us figure {
+  position: relative;
+  margin-bottom: 50px;
+}
+section#about-us figure:before {
+  content: '';
+  border: 1px solid #baaf91;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+}
+section#about-us figure:after {
+  content: '';
+  border: 1px solid #baaf91;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+}
+
 section#contact-form {
   background: #1a1a19;
   color: #f3f3f2;
