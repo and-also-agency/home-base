@@ -10,6 +10,9 @@ footer {
 		&:hover {
 			color: $primary-gold;
 		}
+		&:focus {
+			outline: none;
+		}
 	}
 	div {
 		@include span-columns(4);
@@ -19,14 +22,17 @@ footer {
 		object {
 			width: 60px;
 		}
-		ul {
-			margin: 0;
-			padding: 0;
-			li {
-				list-style-type: none;
-				display: inline-block;
-				margin-right: 25px;
-			}
-		}
 	}
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style-type: none;
+			display: inline-block;
+			margin-right: 25px;
+			&:focus {
+				outline: none;
+			}	
+		}
+	}	
 }

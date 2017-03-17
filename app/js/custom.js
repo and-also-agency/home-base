@@ -32,7 +32,9 @@ $(function() {
 
 	// Splash page
 
-	$('#splash-content').on('mouseover', function() {
+	$('#splash-content').on('mouseover click touch', function(e) {
+		console.log('You clicked me');
+		e.preventDefault();
 		$(this).closest('section').addClass('splash-hover');
 	});
 
@@ -50,4 +52,14 @@ $(document).keyup(function(e) {
 
 		}
     }
+});
+
+// Float label
+
+$('input, textarea').on('input', function() {
+    if ($(this).val() !== '') {
+        $(this).addClass('visible');
+    } else {
+        $(this).removeClass('visible');
+    };
 });

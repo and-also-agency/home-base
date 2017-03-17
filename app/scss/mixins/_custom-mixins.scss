@@ -8,3 +8,85 @@
 	border: 1px solid $border-color;
 	border-radius: $width/2;
 }
+
+// 3 dots
+
+@mixin three-dots($delay: 0.15s, $display: inline-block, $bottom-pos: -16px, $right-pos: -10px, $font-size: 0.2em) {
+	transition: transform 0.4s ease;
+	transition-delay: $delay;
+	transform: translateZ(0);
+	display: $display;
+	&:after {
+		position: absolute;
+		bottom: $bottom-pos;
+		right: $right-pos;
+		color: transparent;
+		content: '•';
+		text-shadow: transparent 0px 0px;
+		font-size: $font-size;
+		pointer-events: none;
+		transition: color 0.2s ease;
+		line-height: 0;
+		opacity: 0;		
+	}
+}
+
+@mixin three-dots-parent($child: '.child', $delay: 0.15s, $display: inline-block, $bottom-pos: -16px, $right-pos: -10px, $hover-color: $almost-white, $dot-margin: 10px) {
+    #{$child} {
+		transition: transform 0.4s ease;
+		transition-delay: $delay;
+		transform: translateZ(0);
+		display: $display;
+		&:after {
+			position: absolute;
+			bottom: $bottom-pos;
+			right: $right-pos;
+			color: transparent;
+			content: '•';
+			text-shadow: transparent 0px 0px;
+			font-size: 0.2em;
+			pointer-events: none;
+			transition: color 0.2s ease;
+			line-height: 0;
+			opacity: 0;		
+		}
+    }
+    &:hover {
+		#{$child} {
+			color: $hover-color;
+			&:after {
+				text-shadow: $dot-margin 0 $hover-color, $dot-margin*2 0 $hover-color;
+				color: $hover-color;
+				opacity: 1;
+				transition: text-shadow 0.2s, opacity 0.2s;	
+				transition-delay: 0.2s;				
+			}
+		}    	
+    }
+}
+
+div.cross {
+	width: 75px;
+	height: 75px;
+	border: 1px solid $primary-gold;
+	border-radius: 38px;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+	span {
+		background: $primary-gold;
+		height: 40px;
+		position: absolute;
+		left: 50%;
+		top: 18px;
+		width: 1px;
+		&:after {
+			background: $primary-gold;
+			content: "";
+			height: 1px;
+			left: -20px;
+			position: absolute;
+			top: 20px;
+			width: 40px;
+		}		
+	}
+}

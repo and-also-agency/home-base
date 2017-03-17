@@ -7,7 +7,12 @@
 
 	<title>Contact | &amp;AA</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
 	<link rel="stylesheet" href="/css/main.css">
 
     <!--[if (lt IE 9) & (!IEMobile)]>
@@ -43,7 +48,7 @@
   				<h5>Email</h5>
   				<span>hello@andalsoagency.com</span>
   				<h5>Phone</h5>
-  				<span>303.847.1829</span>
+  				<span>+1 303.974.7852</span>
   				<h5>Location</h5>
   				<span>Denver, CO</span>
   				<ul class="social">
@@ -86,24 +91,50 @@
   	<section id="contact-form">
       <article>
         <h2 class="underline">Let's Talk</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, nesciunt ad! Quasi amet cupiditate voluptatum eius quos, iste velit, exercitationem esse laboriosam, odit omnis id? Aut nam doloribus inventore assumenda.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex dolorum modi doloremque amet, aliquam possimus tempore, aperiam commodi? Et.</p>
+        <h3>+1 303.111.1111</h3>
+        <h3><a href="#">hello@andalsoagency.com</a></h3>
       </article>
       <aside>
         <form action="">
           <div>
-            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Name" name="name" id="name">
+            <label for="name">Name</label>
           </div>
           <div>
-            <input type="text" placeholder="Company">
+            <input type="text" placeholder="Company" name="company" id="company">
+            <label for="company">Company</label>
           </div>
           <div>
-            <input type="text" placeholder="Email Address">
+            <input type="text" placeholder="Email" name="email" id="email">
+            <label for="email">Email</label>
           </div>
-          <div>
-            <input type="text" placeholder="Phone Number">
-          </div>
-          <div>
-            <input type="text" placeholder="First Name">
+          <div class="check-container">
+            <p>What can we help you with?</p>
+            <div>
+              <input class="checkbox-custom" type="checkbox" name="website" id="website">
+              <label for="website" class="checkbox-custom-label">Website</label>
+            </div>
+            <div>
+               <input class="checkbox-custom" type="checkbox" name="email-marketing" id="email-marketing">
+               <label for="email-marketing" class="checkbox-custom-label">Email Marketing</label>
+            </div>
+            <div>
+              <input class="checkbox-custom" type="checkbox" name="social" id="social">
+              <label for="social" class="checkbox-custom-label">Social Media</label>
+            </div>
+            <div>
+              <input class="checkbox-custom" type="checkbox" name="advertising" id="advertising">
+              <label for="advertising" class="checkbox-custom-label">Online Advertising</label>
+            </div>
+            <div>
+              <input class="checkbox-custom" type="checkbox" name="automation" id="automation">
+              <label for="automation" class="checkbox-custom-label">Automation</label>
+            </div>
+            <div>
+              <input class="checkbox-custom" type="checkbox" name="other" id="other">
+              <label for="other" class="checkbox-custom-label">Other</label>
+            </div>
           </div>
         </form>
       </aside>

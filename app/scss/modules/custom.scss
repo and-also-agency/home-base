@@ -13,7 +13,7 @@ h2 {
 }
 
 h3 {
-	font-size: modular-scale(3);
+	font-size: modular-scale(2);
 }
 
 h4 {
@@ -21,6 +21,14 @@ h4 {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: $ls-medium;
+	margin-bottom: 0.2em;
+}
+
+h5 {
+	text-transform: uppercase;
+	font-size: modular-scale(-1);
+	letter-spacing: $ls-medium;
+	font-family: $base-font-family;
 }
 
 ul {
@@ -54,17 +62,107 @@ blockquote {
 	}
 }
 
+// Shapes
+
 // Forms
 
-input#{$all-text-inputs} {
-	background-color: transparent;
-	border: 1px solid $almost-white;
+form > div {
+	position: relative;
+}
+
+.check-container {
+	margin-top: 30px;
+	> div {
+		@include span-columns(4);
+		&:nth-of-type(3n) {
+			@include omega();
+		}
+	}
+}
+
+.checkbox-custom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom, .checkbox-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 20px;
+    cursor: pointer;
+}
+
+.checkbox-custom-label {
+    position: relative;
+    line-height: 0;
+    color: $light-gray;
+    transition: color 0.3s ease-in-out;
+    font-weight: 200;
+}
+
+.checkbox-custom + .checkbox-custom-label:before {
+    content: '';
+    border: 1px solid $primary-gold;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.checkbox-custom + .checkbox-custom-label:after {
+    content: '\f00c';
+    font-family: FontAwesome;
+    position: absolute;
+    left: 3px;
+    top: 10px;
+    font-size: 14px;
+    color: $primary-gold;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label {
+	color: $primary-gold;
+	&:after {
+		opacity: 1;		
+	}
+}
+
+input[type='text'], input[type='email'] {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, $primary-gold 50%);
+	background-size: 100% 200%;
+	transition: all 0.3s ease-out;
+	border: 1px solid $secondary-gold;
 	border-width: 0 0 1px 0;
 	border-radius: 0;
-	height: 40px;
+	height: 45px;
 	margin-bottom: 20px;
-	padding: 10px;
+	padding: 15px 10px;
 	color: $primary-gold;
+	&:hover {
+		border-color: $primary-gold;
+	}
+	&:focus {
+		background-position: 0 100%;
+		color: $darker-gray;
+	}
+}
+
+input[type='text'] + label, input[type='email'] + label, .select-label {
+	position: absolute;
+    top: 18px;
+    right: 10px;
+	font-size: 0.7em;
+	opacity: 0;
+	transition: all 0.4s ease-in-out;
+	color: $almost-white;
+}
+
+input[type='text'].visible + label, input[type='email'].visible + label, .select-label.visible {
+    opacity: 1;
+    transform: translateY(-4px);
 }
 
 .underline {
@@ -173,7 +271,7 @@ section#masthead {
 		// }
 	}
 	p {
-		font-size: 1.6em;
+		font-size: modular-scale(2);
 	}
 	#looper {
 		color: $primary-gold;
@@ -193,45 +291,94 @@ section#home-detail {
 		margin-bottom: 2em;
 	}
 	aside {
-		@include span-columns(3);
-		@include omega(4n);
+		@include span-columns(6);
+		@include omega(2n);
 		position: relative;
 		> div {
-			margin: 0 0.5em;
-			padding: 3em 1.5em 1.5em;
-			// background: darken($almost-white, 10%);
 			position: relative;
-			text-align: center;
-			i {
-				font-size: 1.4em;
-				color: $almost-white;
-				// background: linear-gradient(45deg, $secondary-gold, $primary-gold);
-				background-color: $primary-gold;
-				width: 60px;
-				height: 60px;
-				border-radius: 30px;
-				line-height: 60px;
-				position: absolute;
-				top: -25px;
-				left: calc(50% - 30px);
-				z-index: 1;
+			text-align: left;
+			h5 {
+				line-height: 25px;
 			}
-			&:after, &:before {
-				content: '';
-				width: 100%;
-				height: 100%;
-				border: 1px solid $primary-gold;
-				position: absolute;
-				bottom: -9px;
-				right: -9px;
+			&:first-of-type {
+				@include span-columns(4);
+				@include shift(1);
 			}
-			&:before {
-				bottom: 0;
-				right: 0;				
+			&:nth-of-type(2) {
+				@include span-columns(6);
 			}
 		}
 	}
+	i {
+		width: 100%;
+		display: block;
+		font-size: 1.4em;
+		color: $almost-white;
+		border-radius: 30px;
+		margin-bottom: 20px;
+		transition: all 0.3s ease-in-out;
+	}	
+	ul {
+		display: flex;
+		list-style: none;
+		flex-direction: row;
+		flex-wrap: wrap;
+		li {
+			display: flex;
+			width: 33%;
+			padding: 20px;
+		}		
+		a {
+			cursor: default;
+			padding: 30px;
+			display: flex;
+			flex-flow: row wrap;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			background: #fff;
+			border-bottom: 1px solid shade($almost-white, 5%);
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				border-bottom: 1px solid $primary-gold;
+				i {
+					color: $primary-gold;
+				}
+				h5 {
+					color: $darker-gray;
+				}
+			}		
+		}
+		h5 {
+			color: $primary-gray;
+		}
+		a.last {
+			cursor: pointer;
+			justify-content: center;
+			align-items: center;
+			background: $primary-gray;
+			h5 {
+				color: $primary-gold;
+			}
+			@include three-dots-parent($child: 'h5', $delay: 0.15s, $display: inline-block, $bottom-pos: 5px, $right-pos: -8px, $hover-color: $almost-white, $dot-margin: 6px);
+			&:hover {
+				background: $darker-gray;
+			}
+			// &:after {
+			// 	content: '';
+			// 	display: block;
+			// 	width: 0;
+			// 	height: 2px;
+			// 	background: shade($primary-gold, 25%);
+			// 	transition: width .3s;				
+			// }
+			// &:hover:after {
+			// 	width: 100%;
+			// }			
+		}	
+	}
 }
+
 
 section#home-work {
 	@include outer-container(100%);
@@ -293,9 +440,10 @@ section#bottom-cta {
 	div {
 	}
 	a {
+		@include three-dots-parent($child: 'h2', $delay: 0.15s, $display: inline-block, $bottom-pos: 14px, $right-pos: -10px, $hover-color: $darker-gray, $dot-margin: 10px);
 		display: block;
 		width: 100%;
-		padding: 3em 0;
+		padding: 10em 0;
 		overflow: hidden;
 		position: relative;
 		&:before {
@@ -321,41 +469,10 @@ section#bottom-cta {
 		color: $darker-gray;
 		position: relative
 	}
-	h2 {
-		transition: transform 0.4s ease;
-		transition-delay: 0.15s;
-		transform: translateZ(0);
-		display: inline-block;
-		&:after {
-			position: absolute;
-			bottom: 16px;
-			right: -10px;
-			color: transparent;
-			content: '•';
-			text-shadow: transparent 0px 0px;
-			font-size: 0.2em;
-			pointer-events: none;
-			transition: color 0.2s ease;
-			line-height: 0;
-			opacity: 0;
-		}		
-	}
 	span {
 		display: block;
 		margin-bottom: 1em;
-	}
-	a:hover {
-		h2 {
-			color: $darker-gray;
-			&:after {
-				text-shadow: 10px 0 $darker-gray, 20px 0 $darker-gray;
-				color: $darker-gray;
-				opacity: 1;
-				transition: text-shadow 0.2s, opacity 0.2s;	
-				transition-delay: 0.2s;				
-			}
-		}
-	}
+	}	
 }
 
 // About Us
@@ -366,9 +483,10 @@ section#about-expertise {
 	@include outer-container(100%);
 	article {
 		@include span-columns(4);
+		@include shift(1);
 	}
 	aside {
-		@include span-columns(8);
+		@include span-columns(6);
 		@include omega();
 	}
 	ul {
@@ -383,7 +501,7 @@ section#about-expertise {
 		&:last-of-type {
 			border-bottom: 1px solid rgba($primary-gold, 0.5);
 		}
-	}
+	}	
 }
 
 section#about-story {
@@ -398,13 +516,21 @@ section#about-story {
 	}
 	article {
 		@include row();
-		padding-top: 4.5em;
+		padding-top: 6em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		> div:first-of-type {
 		@include span-columns(5);
 		@include shift(1);
 		}
 		> div:last-of-type {
 			@include span-columns(5);
+		}
+		object {
+			max-width: 375px;
+			display: block;
+			margin: 0 auto;
 		}
 	}
 }
@@ -417,9 +543,11 @@ section#contact-form {
 	@include outer-container(100%);
 	article {
 		@include span-columns(4);
+		@include shift(1);
 	}
 	aside {
-		@include span-columns(8);
+		@include span-columns(5);
+		@include shift(1);
 		@include omega();
 	}
 }
@@ -450,11 +578,12 @@ section#splash {
 		transition-delay: 0.3s;
 		animation: none;
 	}
-	object {
+	img {
 		width: 150px;
 		display: inline-block;
 		transition: opacity 0.2s ease-in-out;
 		animation: pulse 2s 1s infinite;
+		pointer-events: none;
 	}
 	span {
 		display: block;
@@ -467,11 +596,15 @@ section#splash {
 		transition-delay: 0.7s;
 		font-size: 1.2em;
 	}
+	a {
+		display: inline-block;
+		z-index: 1001;
+	}
 }
 
 section#splash.splash-hover {
 	background: $darker-gray;
-	object {
+	img {
 		opacity: 0;
 	}
 	span {
@@ -481,6 +614,9 @@ section#splash.splash-hover {
 	#fade-logo {
 		opacity: 1;
 		transform: translateY(50px);
+	}
+	a {
+		cursor: default;
 	}
 }
 
