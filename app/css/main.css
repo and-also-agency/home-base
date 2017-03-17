@@ -1355,7 +1355,7 @@ section#masthead {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(rgba(26, 26, 25, 0.1), rgba(26, 26, 25, 0.1)), url("../img/masthead-bg.jpg") center center;
+  background: linear-gradient(rgba(186, 175, 145, 0.15), rgba(26, 26, 25, 0.1)), url("../img/masthead-bg.jpg") center top;
   background-size: cover;
   color: #f3f3f2;
   padding: 0;
