@@ -250,7 +250,7 @@ section {
 
 section#masthead {
 	@include outer-container(100%);
-	background: linear-gradient(rgba($darker-gray, 0.1), rgba($darker-gray, 0.1)), url('../img/masthead-bg.jpg') center center;
+	background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/masthead-bg.jpg') center top;
 	background-size: cover;
 	color: $almost-white;
 	padding: 0;
