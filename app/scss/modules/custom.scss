@@ -250,10 +250,24 @@ section {
 
 section#masthead {
 	@include outer-container(100%);
-	background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/masthead-bg.jpg') center top;
-	background-size: cover;
 	color: $almost-white;
 	padding: 0;
+	&.home {
+		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/home-bg.jpg') center top;
+		background-size: cover;		
+	}	
+	&.about {
+		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/about-bg.jpg') center center;
+		background-size: cover;		
+	}
+	&.work {
+		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/work-bg.jpg') center top;
+		background-size: cover;		
+	}	
+	&.contact {
+		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/contact-bg.jpg') center center;
+		background-size: cover;		
+	}
 	header {
 		position: absolute;
 		left: 3%;
