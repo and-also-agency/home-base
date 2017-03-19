@@ -377,18 +377,7 @@ section#home-detail {
 			@include three-dots-parent($child: 'h5', $delay: 0.15s, $display: inline-block, $bottom-pos: 5px, $right-pos: -8px, $hover-color: $almost-white, $dot-margin: 6px);
 			&:hover {
 				background: $darker-gray;
-			}
-			// &:after {
-			// 	content: '';
-			// 	display: block;
-			// 	width: 0;
-			// 	height: 2px;
-			// 	background: shade($primary-gold, 25%);
-			// 	transition: width .3s;				
-			// }
-			// &:hover:after {
-			// 	width: 100%;
-			// }			
+			}		
 		}	
 	}
 }
@@ -545,6 +534,40 @@ section#about-story {
 			max-width: 375px;
 			display: block;
 			margin: 0 auto;
+		}
+	}
+}
+
+section#about-us {
+	@include outer-container(100%);
+	> div {
+		@include span-columns(10);
+		@include shift(1);
+	}
+	article {
+		@include span-columns(6);
+		@include clearfix;
+	}
+	figure {
+		position: relative;
+		margin-bottom: 50px;
+		&:before {
+			content: '';
+			border: 1px solid $primary-gold;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 100%;
+			height: 100%;
+		}
+		&:after {
+			content: '';
+			border: 1px solid $primary-gold;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			width: 100%;
+			height: 100%;			
 		}
 	}
 }
