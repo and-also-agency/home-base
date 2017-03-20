@@ -1155,6 +1155,58 @@ blockquote:before {
   opacity: 0.7;
 }
 
+.macbook {
+  margin-bottom: 4em;
+}
+.macbook div:nth-of-type(1) {
+  width: 75%;
+  margin: 0 auto;
+  background: #1a1a19;
+  border-width: 1px 1px 0 1px;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  padding: 40px;
+}
+.macbook div:nth-of-type(1):after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  background: #baaf91;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.macbook div:nth-of-type(2) {
+  width: 90%;
+  margin: 0 auto;
+  background: #5b5b58;
+  border-radius: 0 0 15px 15px;
+  height: 36px;
+  position: relative;
+}
+.macbook div:nth-of-type(2):before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  background: #baaf91;
+  width: 180px;
+  height: 20px;
+  border-radius: 0 0 10px 10px;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.macbook figure {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+
 form > div {
   position: relative;
 }
@@ -1762,13 +1814,51 @@ section#about-expertise ul {
   color: #baaf91;
 }
 section#about-expertise ul li {
-  padding: 20px 15px;
   border-top: 1px solid rgba(186, 175, 145, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  font-weight: 400;
 }
 section#about-expertise ul li:last-of-type {
   border-bottom: 1px solid rgba(186, 175, 145, 0.5);
+}
+section#about-expertise ul li a {
+  padding: 20px 15px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 1em;
+  position: relative;
+  background: linear-gradient(to bottom, transparent 50%, #baaf91 50%);
+  background-size: 100% 200%;
+  transition: all 0.4s ease-out;
+}
+section#about-expertise ul li a:after {
+  content: '+';
+  position: absolute;
+  right: 10px;
+  color: #f3f3f2;
+  font-weight: 300;
+  letter-spacing: normal;
+}
+section#about-expertise ul li a:hover {
+  background-position: 0 100%;
+  color: #1a1a19;
+}
+section#about-expertise ul.accordion > li p.submenu {
+  display: none;
+  background: #baaf91;
+  color: #f3f3f2;
+  padding: 0 15px 15px;
+  margin-bottom: 0;
+  text-transform: none;
+  font-size: 1em;
+  letter-spacing: normal;
+  font-weight: normal;
+}
+section#about-expertise ul.accordion .is-expanded a {
+  background-color: #baaf91;
+  color: #1a1a19;
 }
 
 section#about-story {
@@ -1839,6 +1929,7 @@ section#about-story article > div:last-of-type:last-child {
 }
 section#about-story article object {
   max-width: 375px;
+  max-height: 290px;
   display: block;
   margin: 0 auto;
 }
@@ -1898,6 +1989,66 @@ section#about-us figure:after {
   left: 5px;
   width: 100%;
   height: 100%;
+}
+
+section.work-example {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+section.work-example::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section.work-example:nth-of-type(odd) {
+  background: #baaf91;
+}
+section.work-example:nth-of-type(odd) aside span {
+  background: #5b5b58;
+}
+section.work-example:nth-of-type(odd) aside div:nth-of-type(1) {
+  border-color: #5b5b58;
+}
+section.work-example article::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section.work-example aside {
+  margin-left: 8.5298%;
+}
+section.work-example aside div:nth-of-type(1) {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%;
+  padding-right: 2.35765%;
+  border-right: 1px solid #baaf91;
+}
+section.work-example aside div:nth-of-type(1):last-child {
+  margin-right: 0;
+}
+section.work-example aside div:nth-of-type(2) {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+section.work-example aside div:nth-of-type(2):last-child {
+  margin-right: 0;
+}
+section.work-example aside span {
+  display: inline-block;
+  background: #baaf91;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin: 5px 5px 5px 0;
+  text-transform: uppercase;
+  color: #f3f3f2;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  font-size: 0.8em;
 }
 
 section#contact-form {

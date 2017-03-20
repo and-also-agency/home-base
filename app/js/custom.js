@@ -38,6 +38,13 @@ $(function() {
 		$(this).closest('section').addClass('splash-hover');
 	});
 
+	$('.js-accordion-trigger').bind('click', function(e){
+	  $(this).parent().find('.submenu').slideToggle(400);  // apply the toggle to the ul
+	  $(this).parent().toggleClass('is-expanded');
+	  $(this).parent().siblings().removeClass('is-expanded').find('.submenu').slideUp(200);
+	  e.preventDefault();
+	});	
+
 });
 
 // Toggle with hitting of ESC
