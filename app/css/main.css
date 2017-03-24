@@ -1155,6 +1155,23 @@ blockquote:before {
   opacity: 0.7;
 }
 
+button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-image: linear-gradient(45deg, #baaf91 0%, #9c8d62 50%, #baaf91 100%);
+  border-image-slice: 1;
+}
+
+textarea {
+  background: transparent;
+  border: 1px solid transparent;
+  border-image: linear-gradient(45deg, #baaf91 0%, #9c8d62 50%, #baaf91 100%);
+  border-image-slice: 1;
+  color: #f3f3f2;
+  height: 100px;
+  margin-bottom: 2em;
+}
+
 .macbook {
   margin-bottom: 4em;
 }
@@ -1212,19 +1229,31 @@ form > div {
 }
 
 .check-container {
-  margin-top: 30px;
+  margin: 2em 0;
+}
+.check-container::after {
+  clear: both;
+  content: "";
+  display: block;
 }
 .check-container > div {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
+  margin-bottom: 18px;
 }
 .check-container > div:last-child {
   margin-right: 0;
 }
 .check-container > div:nth-of-type(3n) {
   margin-right: 0;
+}
+.check-container > div:nth-of-type(n+4) {
+  margin-bottom: 0;
+}
+.check-container h5 {
+  margin-bottom: 18px;
 }
 
 .checkbox-custom {
@@ -1235,7 +1264,6 @@ form > div {
 .checkbox-custom, .checkbox-custom-label {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 20px;
   cursor: pointer;
 }
 
@@ -1668,7 +1696,7 @@ section#home-work article {
   width: 50%;
   float: left;
   display: block;
-  background: url("../img/portfolio/under-armour.jpg");
+  background: url("../img/work/under-armour.jpg");
   z-index: 2;
 }
 section#home-work article:first-of-type h2 {
@@ -1858,6 +1886,9 @@ section#about-expertise ul li a:after {
 section#about-expertise ul li a:hover {
   background-position: 0 100%;
   color: #1a1a19;
+}
+section#about-expertise ul li.is-expanded a:after {
+  content: '-';
 }
 section#about-expertise ul.accordion > li p.submenu {
   display: none;
@@ -2073,6 +2104,15 @@ section#contact-form {
   margin-right: auto;
 }
 section#contact-form::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+section#contact-form > div {
+  margin-left: 8.5298%;
+  display: block;
+}
+section#contact-form > div::after {
   clear: both;
   content: "";
   display: block;

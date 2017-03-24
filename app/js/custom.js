@@ -39,6 +39,7 @@ $(function() {
 	});
 
 	$('.js-accordion-trigger').bind('click', function(e){
+		$(this).blur();
 	  $(this).parent().find('.submenu').slideToggle(400);  // apply the toggle to the ul
 	  $(this).parent().toggleClass('is-expanded');
 	  $(this).parent().siblings().removeClass('is-expanded').find('.submenu').slideUp(200);

@@ -62,6 +62,23 @@ blockquote {
 	}
 }
 
+button {
+	background: transparent;
+	border: 1px solid transparent;
+	border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
+	border-image-slice: 1;
+}
+
+textarea {
+	background: transparent;
+	border: 1px solid transparent;
+	border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
+	border-image-slice: 1;
+	color: $almost-white;
+	height: 100px;
+	margin-bottom: 2em;
+}
+
 // Shapes
 
 .macbook {
@@ -119,12 +136,20 @@ form > div {
 }
 
 .check-container {
-	margin-top: 30px;
+	margin: 2em 0;
+	@include clearfix;
 	> div {
 		@include span-columns(4);
+		margin-bottom: 18px;
 		&:nth-of-type(3n) {
 			@include omega();
 		}
+		&:nth-of-type(n+4) {
+			margin-bottom: 0;
+		}
+	}
+	h5 {
+		margin-bottom: 18px;
 	}
 }
 
@@ -136,7 +161,6 @@ form > div {
 .checkbox-custom, .checkbox-custom-label {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 0 20px;
     cursor: pointer;
 }
 
@@ -453,7 +477,7 @@ section#home-work {
 		width: 50%;
 		float: left;
 		display: block;
-		background: url('../img/portfolio/under-armour.jpg');
+		background: url('../img/work/under-armour.jpg');
 		z-index: 2;
 		&:first-of-type {
 			h2 {
@@ -574,6 +598,9 @@ section#about-expertise {
 				background-position: 0 100%;
 				color: $darker-gray;			
 			}
+		}
+		&.is-expanded a:after {
+			content: '-';
 		}
 	}
 	ul.accordion {
@@ -708,6 +735,10 @@ section#contact-form {
 	background: $darker-gray;
 	color: $almost-white;
 	@include outer-container(100%);
+	> div {
+		@include shift(1);
+		@include row();
+	}
 	article {
 		@include span-columns(4);
 		@include shift(1);
@@ -717,6 +748,12 @@ section#contact-form {
 		@include shift(1);
 		@include omega();
 	}
+	// i {
+	// 	font-size: modular-scale(-1);
+	// 	margin-right: 10px;
+	// 	display: inline-block;
+	// 	color: $primary-gray;
+	// }
 }
 
 // Splash
