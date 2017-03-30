@@ -79,6 +79,10 @@ textarea {
 	margin-bottom: 2em;
 }
 
+object {
+	pointer-events: none;
+}
+
 // Shapes
 
 .macbook {
@@ -86,7 +90,7 @@ textarea {
 	div:nth-of-type(1) {
 		width: 75%;
 		margin: 0 auto;
-		background: $darker-gray;
+		background: shade($almost-white,10%);
 		border-width: 1px 1px 0 1px;
 		border-radius: 20px 20px 0 0;
 		position: relative;
@@ -96,7 +100,7 @@ textarea {
 			position: absolute;
 			left: 50%;
 			top: 15px;
-			background: $primary-gold;
+			background: $darker-gray;
 			width: 12px;
 			height: 12px;
 			border-radius: 6px;
@@ -106,7 +110,7 @@ textarea {
 	div:nth-of-type(2) {
 		width: 90%;
 		margin: 0 auto;
-		background: $primary-gray;
+		background: shade($almost-white,15%);
 		border-radius: 0 0 15px 15px;
 		height: 36px;
 		position: relative;
@@ -114,7 +118,7 @@ textarea {
 			content: '';
 			position: absolute;
 			left: 50%;
-			background: $primary-gold;
+			background: $primary-gray;
 			width: 180px;
 			height: 20px;
 			border-radius: 0 0 10px 10px;
@@ -266,7 +270,17 @@ input[type='text'].visible + label, input[type='email'].visible + label, .select
 		text-transform: uppercase;
 		font-size: 0.75em;
 		font-weight: 600;
-		letter-spacing: $ls-medium;		
+		letter-spacing: $ls-medium;	
+		&:after {
+			content: '•';
+			display: inline-block;
+			width: 18px;
+		}
+		&:last-of-type {
+			&:after {
+				display: none;
+			}	
+		}	
 	}
 	h4, span {
 		opacity: 0;
@@ -324,6 +338,7 @@ section#masthead {
 	@include outer-container(100%);
 	color: $almost-white;
 	padding: 0;
+	background-attachment: fixed !important; 
 	&.home {
 		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/home-bg.jpg') center top;
 		background-size: cover;		
@@ -333,7 +348,7 @@ section#masthead {
 		background-size: cover;		
 	}
 	&.work {
-		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/work-bg.jpg') center top;
+		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/work-bg.jpg') center center;
 		background-size: cover;		
 	}	
 	&.contact {
@@ -347,14 +362,17 @@ section#masthead {
 		object {
 			width: 60px;
 		}
+		a {
+			display: inline-block;
+		}
 	}
 	div {
 		@include span-columns(6);
-		@include omega();
 		padding: 200px 3%;
-		// @include media($sm) {
-		// 	@include span-columns(4);
-		// }
+		@include media($md) {
+			@include span-columns(12);
+			padding: 150px 3% 100px;
+		}
 	}
 	p {
 		font-size: modular-scale(2);
@@ -413,6 +431,13 @@ section#home-detail {
 			display: flex;
 			width: 33%;
 			padding: 20px;
+			@include media($lg) {
+				width: 50%;
+			}
+			@include media($sm) {
+				width: 100%;
+				padding: 20px 0;				
+			}			
 		}		
 		a {
 			cursor: default;
@@ -477,13 +502,19 @@ section#home-work {
 		width: 50%;
 		float: left;
 		display: block;
-		background: url('../img/work/under-armour.jpg');
 		z-index: 2;
+		@include media ($md) {
+			width: 100%;
+		}
 		&:first-of-type {
+			background: url('../img/work/home-cor.jpg');
 			h2 {
 				right: 10px;
 				left: auto;
 			}
+		}
+		&:last-of-type {
+			background: url('../img/work/home-coresite.jpg');
 		}		
 	}	
 }
@@ -521,6 +552,9 @@ section#bottom-cta {
 		padding: 10em 0;
 		overflow: hidden;
 		position: relative;
+		@include media($md) {
+			padding: 5em 0;
+		}
 		&:before {
 			content: '';
 			position: absolute;
@@ -559,14 +593,25 @@ section#about-expertise {
 	article {
 		@include span-columns(4);
 		@include shift(1);
+		@include media($md) {
+			@include span-columns(12);
+			@include shift(0);
+		}
 	}
 	aside {
 		@include span-columns(6);
 		@include omega();
+		@include media($md) {
+			@include span-columns(12);
+		}		
 	}
 	ul {
 		margin-left: 50px;
 		color: $primary-gold;
+		@include media($md) {
+			margin-left: 0;
+			margin-top: 2em;
+		}
 	}
 	ul li {
 		border-top: 1px solid rgba($primary-gold, 0.5);
@@ -635,9 +680,9 @@ section#about-story {
 	article {
 		@include row();
 		padding-top: 6em;
-		display: flex;
+		// display: flex;
 		justify-content: center;
-		align-items: center;
+		align-items: center;		
 		> div:first-of-type {
 		@include span-columns(5);
 		@include shift(1);
@@ -650,6 +695,11 @@ section#about-story {
 			max-height: 290px;
 			display: block;
 			margin: 0 auto;
+		}
+		@include media($md) {
+			> div:first-of-type, > div:last-of-type {
+				@include span-columns(12);
+			}
 		}
 	}
 }
@@ -693,10 +743,8 @@ section#about-us {
 section.work-example {
 	@include outer-container(100%);
 	&:nth-of-type(odd) {
-		background: $primary-gold;
-		aside span {
-			background: $primary-gray;
-		}
+		background: $darker-gray;
+		color: $almost-white;
 		aside div:nth-of-type(1) {
 			border-color: $primary-gray;
 		}
@@ -706,25 +754,44 @@ section.work-example {
 	}
 	aside {
 		@include shift(1);
-		div:nth-of-type(1) {
+		@include row();
+		@include media($md) {
+			@include shift(0);
+		}
+		div {
+			@include media($md) {
+				@include span-columns(12);
+			}
+		}	
+		div {
 			@include span-columns(7);
 			padding-right: 2.35765%;
-			border-right: 1px solid $primary-gold;
 		}
-		div:nth-of-type(2) {
+		div:last-child {
 			@include span-columns(4);
+			// border-left: 1px solid $primary-gold;
 		}
 		span {
+			font-size: 0.6em;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.3em;
+			margin: 0;
+		}
+		dl {
+			@include row();
+			margin-bottom: 2em;
+		}
+		dt {
 			display: inline-block;
-			background: $primary-gold;
-			padding: 3px 10px;
+			border: 1px solid $primary-gold;
+			padding: 1px 6px;
 			border-radius: 3px;
 			margin: 5px 5px 5px 0;
-			text-transform: uppercase;
-			color: $almost-white;
-			font-weight: 500;
-			letter-spacing: $ls-medium;
+			color: $primary-gold;
+			letter-spacing: $ls-small;
 			font-size: modular-scale(-1);
+			font-weight: 400;
 		}
 	}
 }
