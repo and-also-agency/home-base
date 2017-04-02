@@ -78,6 +78,10 @@ button {
 	&:focus {
 		outline: 0;
 	}
+	@include media($md) {
+		@include shift(0);
+		@include fill-parent;
+	}
 }
 
 [type='submit'] {
@@ -405,7 +409,7 @@ section#masthead {
 		padding: 200px 3%;
 		@include media($md) {
 			@include span-columns(12);
-			padding: 150px 3% 100px;
+			padding: 150px 30px 100px;
 		}
 	}
 	p {
@@ -427,6 +431,10 @@ section#home-detail {
 		padding: 0;
 		text-align: center;
 		margin-bottom: 2em;
+		@include media($md) {
+			@include fill-parent;
+			@include shift(0);
+		}
 	}
 	aside {
 		@include span-columns(6);
@@ -504,6 +512,9 @@ section#home-detail {
 			background: $primary-gray;
 			h5 {
 				color: $primary-gold;
+				@include media($sm) {
+					margin-bottom: 0;				
+				}
 			}
 			@include three-dots-parent($child: 'h5', $delay: 0.15s, $display: inline-block, $bottom-pos: 5px, $right-pos: -8px, $hover-color: $almost-white, $dot-margin: 6px);
 			&:hover {
@@ -526,6 +537,9 @@ section#home-work {
 		color: $primary-gold;
 		top: 55px;
 		user-select: none;
+		@include media ($md) {
+			display: none;
+		}
 	}
 	> div {		
 	}
@@ -537,8 +551,30 @@ section#home-work {
 		float: left;
 		display: block;
 		z-index: 2;
+		@include media ($sm) {
+		h4 {
+			@include span-columns(3);
+		}
+		}
 		@include media ($md) {
 			width: 100%;
+		a {
+			background-color: rgba($darker-gray, 0.9);
+		}
+		h4 {
+			opacity: 1;
+			transform: translateY(8px);
+			transition-delay: 0.25s;
+		}
+		span {
+			opacity: 1;
+			transform: translateY(8px);
+			transition-delay: 0.3s;
+		}
+		&:before, &:after {
+			opacity: 1;
+			transform: scale(1);
+		}
 		}
 		&:first-of-type {
 			background: url('../img/work/home-cor.jpg');
@@ -560,6 +596,10 @@ section#home-testimonial {
 		text-align: center;
 		blockquote {
 			font-size: modular-scale(2);
+			@include media($md) {
+			@include fill-parent;
+			@include shift(0);
+		}
 		}
 		p {
 			font-size: 0.75em;
@@ -588,6 +628,8 @@ section#bottom-cta {
 		position: relative;
 		@include media($md) {
 			padding: 5em 0;
+			@include fill-parent;
+			@include shift(0);
 		}
 		&:before {
 			content: '';
@@ -664,7 +706,10 @@ section#about-expertise {
 			position: relative;
 			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, $primary-gold 50%);
 			background-size: 100% 200%;
-			transition: all 0.4s ease-out;			
+			transition: all 0.4s ease-out;	
+			@include media ($md){
+			line-height: 25px;
+			}		
 			&:after {
 				content: '+';
 				position: absolute;
@@ -732,7 +777,8 @@ section#about-story {
 		}
 		@include media($md) {
 			> div:first-of-type, > div:last-of-type {
-				@include span-columns(12);
+				@include fill-parent;
+				@include shift(0);
 			}
 		}
 	}
@@ -743,10 +789,23 @@ section#about-us {
 	> div {
 		@include span-columns(10);
 		@include shift(1);
+		@include media($md) {
+			@include shift(0);
+			@include fill-parent;
+		}
 	}
 	article {
 		@include span-columns(6);
 		@include clearfix;
+		@include media ($md) {
+			@include fill-parent;
+		}
+		div {
+			@include media ($md) {
+			text-align: center;
+			padding-bottom: 35px;
+		}
+		}
 	}
 	figure {
 		position: relative;
@@ -908,15 +967,34 @@ section#contact-form {
 	> div {
 		@include span-columns(10);
 		@include shift(1);
+		@include media($md) {
+			@include shift(0);
+			@include fill-parent;
+		}
 	}
 	article {
 		@include span-columns(4);
 		@include shift(1);
+		@include media($md) {
+			@include shift(0);
+			@include fill-parent;
+		}
 	}
 	aside {
 		@include span-columns(5);
 		@include shift(1);
 		@include omega();
+		@include media($md) {
+			@include shift(0);
+			@include fill-parent;
+			margin-bottom: 70px;
+		}
+		div {
+			@include media($md) {
+				@include fill-parent;
+				margin-bottom: 10px;
+			}
+		}
 	}
 }
 

@@ -7,6 +7,7 @@ footer {
 	text-align: center;
 	a {
 		color: $primary-gray;
+		display: inline-block;
 		&:hover {
 			color: $primary-gold;
 		}
@@ -16,11 +17,38 @@ footer {
 	}
 	div {
 		@include span-columns(4);
+		color: $primary-gray;
+		line-height: 40px;
 		&:nth-child(2) {
-			line-height: 0;
 		}
 		object {
 			width: 60px;
+			display: block;
+		}
+		&:first-of-type {
+			@include shift(4);
+			line-height: 0;
+			@include media ($md){
+				@include shift(0);
+			}
+		}
+		&:nth-of-type(2) {
+			@include shift(-8);
+			line-height: 31px;
+			@include media ($md){
+				@include shift(0);
+			}
+		}
+		&:last-of-type {
+			@include omega();
+			line-height: 31px;
+			@include media ($md){
+				@include shift(0);
+			}
+		}
+		@include media ($md) {
+			@include fill-parent;
+			margin: 10px 0;
 		}
 	}
 	ul {
@@ -32,7 +60,14 @@ footer {
 			margin-right: 25px;
 			&:focus {
 				outline: none;
-			}	
+			}
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
-	}	
+	}
+	span {
+		font-size: modular-scale(-1);
+		line-height: 0;
+	}
 }
