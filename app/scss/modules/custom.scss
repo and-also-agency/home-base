@@ -67,6 +67,24 @@ button {
 	border: 1px solid transparent;
 	border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
 	border-image-slice: 1;
+	&:focus {
+		outline: 0;
+	}
+}
+
+[type='submit'] {
+	background: $primary-gold;
+	text-transform: uppercase;
+	position: relative;
+	border-radius: 0;
+	padding: 20px 40px;
+	font-size: modular-scale(0);
+	font-weight: 700;
+	letter-spacing: $ls-small;
+	@include three-dots-parent($child: 'span', $delay: 0.15s, $display: inline-block, $bottom-pos: 4px, $right-pos: -8px, $hover-color: $almost-white, $dot-margin: 6px);
+	&:hover {
+		background: $secondary-gold;
+	}
 }
 
 textarea {

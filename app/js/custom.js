@@ -70,7 +70,7 @@ $(function() {
         $('html, body').animate({
             scrollTop: $(window.location.hash).offset().top + 'px'
         }, 1500, 'swing');
-    }   
+    };     
 
 });
 
@@ -97,3 +97,42 @@ $('input, textarea').on('input', function() {
         $(this).removeClass('visible');
     };
 });
+
+// Checkboxes
+
+// $('form').on('submit', function(e) {
+// 	checkedBoxes = $('input:checked').map(function() {
+// 		return this.name	;
+// 	}).get().join(',');
+// 	console.log(checkedBoxes);
+// });
+
+/* attach a submit handler to the form */
+$('#form').submit(function(e) {
+
+	e.preventDefault();
+
+	var dataString = JSON.stringify($(this).serializeArray())
+	console.log(dataString);
+	$.ajax({
+		type: "POST",
+		url: "../bin/mail.php",
+		data: {arr:dataString},
+		success: function() {
+			$('#form').html("<div id='message'></div>");
+			$('#message').html("<h2>Contact Form Submitted!</h2>")
+			.append("<p>We will be in touch soon.</p>")
+			.hide()
+			.fadeIn(1500, function() {
+			$('#message').append("<img id='checkmark' src='images/check.png' />");
+			});
+		}
+  });
+  return false;
+
+});
+
+    // // run Marketo form submission on click of submit button
+    // $('#submit').on("click", function (e) {
+    //     $('#form').trigger('submit');
+    // });

@@ -1188,6 +1188,55 @@ button {
   border-image: linear-gradient(45deg, #baaf91 0%, #9c8d62 50%, #baaf91 100%);
   border-image-slice: 1;
 }
+button:focus {
+  outline: 0;
+}
+
+[type='submit'] {
+  background: #baaf91;
+  text-transform: uppercase;
+  position: relative;
+  border-radius: 0;
+  padding: 20px 40px;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+[type='submit'] span {
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+  transition-delay: 0.15s;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  display: inline-block;
+}
+[type='submit'] span:after {
+  position: absolute;
+  bottom: 4px;
+  right: -8px;
+  color: transparent;
+  content: '•';
+  text-shadow: transparent 0px 0px;
+  font-size: 0.2em;
+  pointer-events: none;
+  transition: color 0.2s ease;
+  line-height: 0;
+  opacity: 0;
+}
+[type='submit']:hover span {
+  color: #f3f3f2;
+}
+[type='submit']:hover span:after {
+  text-shadow: 6px 0 #f3f3f2, 12px 0 #f3f3f2;
+  color: #f3f3f2;
+  opacity: 1;
+  transition: text-shadow 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+}
+[type='submit']:hover {
+  background: #9c8d62;
+}
 
 textarea {
   background: transparent;
