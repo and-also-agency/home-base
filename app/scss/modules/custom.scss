@@ -117,6 +117,7 @@ object {
 		width: 75%;
 		margin: 0 auto;
 		background: shade($almost-white,10%);
+		border: 1px solid $primary-gold;
 		border-width: 1px 1px 0 1px;
 		border-radius: 20px 20px 0 0;
 		position: relative;
@@ -137,6 +138,8 @@ object {
 		width: 90%;
 		margin: 0 auto;
 		background: shade($almost-white,15%);
+		border: 1px solid $primary-gold;
+		border-width: 1px 1px 1px 1px;		
 		border-radius: 0 0 15px 15px;
 		height: 36px;
 		position: relative;
@@ -828,7 +831,7 @@ section.work-example {
 			margin: 2em 0 0;
 		}
 		ul li {		
-			margin: 0 10px 0 0;
+			margin: 0 10px 10px 0;
 			display: inline-block;
 			background: $primary-gold;
 			border-radius: 3px;	

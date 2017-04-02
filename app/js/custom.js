@@ -110,14 +110,22 @@ $('input, textarea').on('input', function() {
 /* attach a submit handler to the form */
 $('#form').submit(function(e) {
 
-	e.preventDefault();
+	// e.preventDefault();
+	// var dataString = JSON.stringify($(this).serializeArray())
+	data = {};
 
-	var dataString = JSON.stringify($(this).serializeArray())
-	console.log(dataString);
+	$(this).find('[name]').each(function(index, value){
+		// console.log(value);
+		name = $(this).attr('name');
+		value = $(this).val();
+
+		data[name] = value;
+	});
+
 	$.ajax({
 		type: "POST",
 		url: "../bin/mail.php",
-		data: {arr:dataString},
+		data: data,
 		success: function() {
 			$('#form').html("<div id='message'></div>");
 			$('#message').html("<h2>Contact Form Submitted!</h2>")
