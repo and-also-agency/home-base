@@ -2309,59 +2309,6 @@ section.work-example aside ul {
 }
 section.work-example aside ul li {
   margin: 0 10px 0 0;
-}
-section.work-example aside ul li p:first-of-type {
-  font-weight: 600;
-}
-section.work-example aside h5 {
-  display: inline-block;
-  margin-right: 10px;
-  color: #baaf91;
-}
-section.work-example aside dl {
-  float: left;
-  display: block;
-  margin-right: 2.84259%;
-  width: 48.57871%;
-}
-section.work-example aside dl:last-child {
-  margin-right: 0;
-}
-section.work-example aside dt {
-  float: left;
-  display: block;
-  margin-right: 4.82916%;
-  width: 12.64237%;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-}
-section.work-example aside dt:last-child {
-  margin-right: 0;
-}
-section.work-example aside dt:after {
-  content: '';
-  width: 100%;
-  background: #baaf91;
-}
-section.work-example aside dd {
-  float: left;
-  display: block;
-  margin-right: 4.82916%;
-  width: 82.52847%;
-  margin-right: 0;
-  margin-bottom: 3em;
-  padding-left: 20px;
-  border-left: 1px solid #baaf91;
-}
-section.work-example aside dd:last-child {
-  margin-right: 0;
-}
-section.work-example aside ul {
-  display: inline-block;
-}
-section.work-example aside ul li {
-  margin: 0 0 10px 0;
   display: inline-block;
   background: #baaf91;
   border-radius: 3px;
@@ -2388,16 +2335,11 @@ section.work-example div.results ol {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   margin: 0 -15px;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 2em;
 }
 section.work-example div.results ol li {
   width: calc(25% - 30px);
   padding: 0;
   margin: 0 15px;
-  margin: 0;
   border: 1px solid #e7e7e6;
   border-width: 0 0 1px 0;
   border-radius: 0;

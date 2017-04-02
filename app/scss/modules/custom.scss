@@ -829,41 +829,6 @@ section.work-example {
 		}
 		ul li {		
 			margin: 0 10px 0 0;
-			p:first-of-type {
-				font-weight: 600;
-			}
-		}
-		h5 {
-			display: inline-block;
-			margin-right: 10px;
-			color: $primary-gold;
-		}
-		dl {
-			@include span-columns(5 of 10);
-		}
-		dt {
-			@include span-columns(1 of 6);
-			text-transform: uppercase;
-			font-size: modular-scale(-1);
-			letter-spacing: $ls-small;
-			&:after {
-				content: '';
-				width: 100%;
-				background: $primary-gold;
-			}
-		}
-		dd {
-			@include span-columns(5 of 6);
-			@include omega();
-			margin-bottom: 3em;
-			padding-left: 20px;
-			border-left: 1px solid $primary-gold;
-		}
-		ul {
-			display: inline-block;
-		}
-		ul li {		
-			margin: 0 0 10px 0;
 			display: inline-block;
 			background: $primary-gold;
 			border-radius: 3px;	
@@ -884,14 +849,11 @@ section.work-example {
 			flex-direction: row;
 			flex-wrap: wrap;
 			margin: 0 -15px;
-			justify-content: space-between;
-			margin-top: 2em;
 		}
 		ol li {
 			width: calc(25% - 30px);
 			padding: 0;
 			margin: 0 15px;
-			margin: 0;
 			border: 1px solid shade($almost-white, 5%);
 			border-width: 0 0 1px 0;
 			border-radius: 0;
