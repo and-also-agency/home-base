@@ -117,6 +117,9 @@ object {
 
 .macbook {
 	margin-bottom: 4em;
+	@include media($md) {
+		margin-bottom: 2em;
+	}
 	div:nth-of-type(1) {
 		width: 75%;
 		margin: 0 auto;
@@ -126,6 +129,12 @@ object {
 		border-radius: 20px 20px 0 0;
 		position: relative;
 		padding: 40px;
+		@include media($md) {
+			width: 100%;
+			border: none;
+			background: transparent;
+			padding: 0;
+		}
 		&:after {
 			content: '';
 			position: absolute;
@@ -147,6 +156,9 @@ object {
 		border-radius: 0 0 15px 15px;
 		height: 36px;
 		position: relative;
+		@include media($md) {
+			display: none;
+		}
 		&:before {
 			content: '';
 			position: absolute;
@@ -162,7 +174,7 @@ object {
 		width: 100%;
 		position: relative;
 		overflow: hidden;
-		height: 600px;
+		height: auto;
 	}
 }
 
@@ -552,29 +564,13 @@ section#home-work {
 		display: block;
 		z-index: 2;
 		@include media ($sm) {
-		h4 {
-			@include span-columns(3);
-		}
+			h4 {
+				@include span-columns(3);
+			}
 		}
 		@include media ($md) {
 			width: 100%;
-		a {
-			background-color: rgba($darker-gray, 0.9);
-		}
-		h4 {
-			opacity: 1;
-			transform: translateY(8px);
-			transition-delay: 0.25s;
-		}
-		span {
-			opacity: 1;
-			transform: translateY(8px);
-			transition-delay: 0.3s;
-		}
-		&:before, &:after {
-			opacity: 1;
-			transform: scale(1);
-		}
+			height: 300px;
 		}
 		&:first-of-type {
 			background: url('../img/work/home-cor.jpg');
@@ -847,6 +843,9 @@ section.work-example {
 	aside {
 		@include shift(1);
 		@include span-columns(10);
+		@include media($md) {
+			@include fill-parent;
+		}
 		&:nth-of-type(n+2) {
 			display: flex;
 			align-items: center;
@@ -858,6 +857,20 @@ section.work-example {
 				padding: 20px 35px 20px 0;
 				border-left: none;
 				border-width: 0 1px 0 0;
+				margin-left: -100%;
+				@include media($md) {
+					margin-left: 0;
+					padding: 0;
+				}
+			}
+			figure {
+				float: right;
+				@include omega();
+				@include shift(5 of 10);
+				@include media($md) {
+					margin-left: 0;
+					float: none;
+				}				
 			}
 		}
 		@include media($md) {
@@ -865,7 +878,7 @@ section.work-example {
 		}
 		div {
 			@include media($md) {
-				@include span-columns(12);
+				@include fill-parent;
 			}
 		}	
 		div {
@@ -875,6 +888,11 @@ section.work-example {
 		figure {
 			@include span-columns(5 of 10);
 			text-align: center;
+			@include media($md) {
+				@include fill-parent;
+				@include omega();
+				margin-bottom: 1em;
+			}
 			img {
 				max-height: 500px;
 			}
@@ -884,10 +902,18 @@ section.work-example {
 			border: 1px solid rgba($darker-gray, 0.1);
 			border-width: 0 0 0 1px;
 			padding: 20px 0 20px 35px;
+			@include media($md) {
+				@include fill-parent;
+				border: none;
+				padding: 0;
+			}			
 		}
 		ul {
 			display: inline-block;
 			margin: 2em 0 0;
+			@include media($md) {
+				margin: 1em 0 0;
+			}
 		}
 		ul li {		
 			margin: 0 10px 10px 0;
@@ -932,8 +958,15 @@ section.work-example {
 				}
 			}
 			@include media($lg) {
-				width: 50%;
+				width: calc(33% - 30px);
+				margin-bottom: 30px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
 			}
+			@include media($md) {
+				width: calc(50% - 30px);
+			}			
 			@include media($sm) {
 				width: 100%;
 				padding: 20px 0;				
