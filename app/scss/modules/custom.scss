@@ -795,10 +795,12 @@ section#about-us {
 		}
 	}
 	article {
-		@include span-columns(6);
+		@include span-columns(4);
+		@include shift(1);
 		@include clearfix;
 		@include media ($md) {
 			@include fill-parent;
+			@include shift(0);
 		}
 		div {
 			@include media ($md) {
