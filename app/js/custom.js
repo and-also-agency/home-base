@@ -28,7 +28,7 @@ $(function() {
 	// Word looping
 
 	i = 0;
-	skillArray = ['email campaigns.', 'analytics.', 'automation.', 'mobile.', 'advertising.', 'pay-per-click.', 'AdWords.', 'e-commerce.', 'WordPress.'];
+	skillArray = ['email.', 'analytics.', 'automation.', 'mobile.', 'advertising.', 'pay-per-click.', 'e-commerce.', 'WordPress.'];
 	setInterval(function() {
 		i++;
 		$('#looper').fadeOut(500, function() {
@@ -110,35 +110,65 @@ $('input, textarea').on('input', function() {
 /* attach a submit handler to the form */
 $('#form').submit(function(e) {
 
-	// e.preventDefault();
-	// var dataString = JSON.stringify($(this).serializeArray())
+	e.preventDefault();
+	$('#submit').attr("disabled", "disabled");
+
 	data = {};
 
-	$(this).find('[name]').each(function(index, value){
-		// console.log(value);
+
+	$(this).find(':input:not([type="checkbox"])').each(function(index, value){
+
 		name = $(this).attr('name');
 		value = $(this).val();
 
 		data[name] = value;
 	});
 
+	var checkboxGroup = '';
+	name = 'services';
+	checkedCheckBoxes = $(this).find("input:checked");
+
+	$(checkedCheckBoxes).each(function (i, checkedBox) {
+		checkboxGroup += $(checkedBox).attr('name') + ",";
+	});
+	checkboxGroup = checkboxGroup.slice(0, -1);
+
+	data[name] = checkboxGroup;
+
+	console.log(data);
+
 	$.ajax({
 		type: "POST",
 		url: "../bin/mail.php",
 		data: data,
-		success: function() {
-			$('#form').html("<div id='message'></div>");
-			$('#message').html("<h2>Contact Form Submitted!</h2>")
-			.append("<p>We will be in touch soon.</p>")
-			.hide()
-			.fadeIn(1500, function() {
-			$('#message').append("<img id='checkmark' src='images/check.png' />");
-			});
-		}
+		success: postFormSuccess,
+		failure: postFormError,
+		complete: postComplete
   });
   return false;
 
 });
+
+postFormSuccess = function () {
+    "use strict";
+	setTimeout(function() {
+		$('#form').slideUp(2000).delay(1000).fadeOut(1000);
+		$('#contact-form h3').slideUp(1000);
+		$('#success').delay(1950).slideDown(1000);
+	}, 2000);    
+};
+
+postFormError = function () {
+    "use strict";
+    $('#form').css("background-color", "red");
+};
+
+postComplete = function () {
+    "use strict";
+    setTimeout(function() {
+    $('#submit').removeAttr('disabled');
+    }, 2000);
+};
 
     // // run Marketo form submission on click of submit button
     // $('#submit').on("click", function (e) {

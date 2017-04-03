@@ -29,6 +29,7 @@ h5 {
 	font-size: modular-scale(-1);
 	letter-spacing: $ls-medium;
 	font-family: $base-font-family;
+	line-height: modular-scale(1);
 }
 
 h6 {
@@ -55,6 +56,7 @@ blockquote {
 	position: relative;
 	font-weight: 200;
 	font-style: italic;
+	margin: 2em 0;
 	&:before {
 		content: '“';
 		font-family: $heading-font-family;
@@ -62,8 +64,8 @@ blockquote {
 		font-weight: 700;
 		font-size: 3em;
 		position: absolute;
-		top: 26px;
-		left: 0;
+		top: 15px;
+		left: -10px;
 		line-height: 0;
 		z-index: -1;
 		opacity: 0.7;
@@ -73,6 +75,7 @@ blockquote {
 button {
 	background: transparent;
 	border: 1px solid transparent;
+	border-color: $primary-gold;
 	border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
 	border-image-slice: 1;
 	&:focus {
@@ -102,9 +105,10 @@ button {
 textarea {
 	background: transparent;
 	border: 1px solid transparent;
+	border-color: $primary-gold;
 	border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
 	border-image-slice: 1;
-	color: $almost-white;
+	color: $primary-gold;
 	height: 100px;
 	margin-bottom: 2em;
 }
@@ -235,6 +239,7 @@ form > div {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+    margin-top: -1px;
 }
 
 .checkbox-custom + .checkbox-custom-label:after {
@@ -242,7 +247,7 @@ form > div {
     font-family: FontAwesome;
     position: absolute;
     left: 3px;
-    top: 10px;
+    top: 9px;
     font-size: 14px;
     color: $primary-gold;
     transition: opacity 0.3s ease-in-out;
@@ -309,6 +314,12 @@ input[type='text'].visible + label, input[type='email'].visible + label, .select
 		display: block;
 		text-align: center;
 		background-color: rgba($darker-gray, 0.5);
+		@include media($sm) {
+			background: rgba($darker-gray, 0.5) !important;
+			> * {
+				display: none !important;
+			}
+		}
 	}
 	h4 {
 		padding-top: 30%;
@@ -346,6 +357,9 @@ input[type='text'].visible + label, input[type='email'].visible + label, .select
 		opacity: 0;
 		transition: opacity 0.45s, transform 0.45s;	
 		pointer-events: none;
+		@include media($sm) {
+			display: none;
+		}		
 	}
 	&:before {
 		border-top: 1px solid $primary-gold;
@@ -357,7 +371,7 @@ input[type='text'].visible + label, input[type='email'].visible + label, .select
 		border-right: 1px solid $primary-gold;
 		transform: scale(1,0);
 	}
-	&:hover {
+	&:hover, &:focus {
 		a {
 			background-color: rgba($darker-gray, 0.9);
 		}
@@ -409,6 +423,9 @@ section#masthead {
 		position: absolute;
 		left: 3%;
 		top: 48px;
+		@include media($md) {
+			left: 30px;
+		}
 		object {
 			width: 60px;
 		}
@@ -493,7 +510,7 @@ section#home-detail {
 				padding: 20px 0;				
 			}			
 		}		
-		a {
+		div, a {
 			cursor: default;
 			padding: 30px;
 			display: flex;
@@ -504,7 +521,7 @@ section#home-detail {
 			background: #fff;
 			border-bottom: 1px solid shade($almost-white, 5%);
 			transition: all 0.3s ease-in-out;
-			&:hover {
+			&:hover, &:focus {
 				border-bottom: 1px solid $primary-gold;
 				i {
 					color: $primary-gold;
@@ -529,7 +546,7 @@ section#home-detail {
 				}
 			}
 			@include three-dots-parent($child: 'h5', $delay: 0.15s, $display: inline-block, $bottom-pos: 5px, $right-pos: -8px, $hover-color: $almost-white, $dot-margin: 6px);
-			&:hover {
+			&:hover, &:focus {
 				background: $darker-gray;
 			}		
 		}	
@@ -565,7 +582,7 @@ section#home-work {
 		z-index: 2;
 		@include media ($sm) {
 			h4 {
-				@include span-columns(3);
+				// @include span-columns(3);
 			}
 		}
 		@include media ($md) {
@@ -591,7 +608,7 @@ section#home-testimonial {
 		@include span-columns(12);
 		text-align: center;
 		blockquote {
-			font-size: modular-scale(2);
+			font-size: modular-scale(1);
 			@include media($md) {
 			@include fill-parent;
 			@include shift(0);
@@ -748,22 +765,27 @@ section#about-story {
 	header {
 		@include row();
 		> div {
-			@include span-columns(12);
+			@include fill-parent;
 			text-align: center;
 		}
 	}
 	article {
-		@include row();
-		padding-top: 6em;
+		@include fill-parent;
+		@include clearfix;
+		margin-top: 6em;
 		// display: flex;
-		justify-content: center;
-		align-items: center;		
+		// justify-content: center;
+		// align-items: center;
+		@include media($md) {
+			@include row();
+			margin-top: 3em;
+		}	
 		> div:first-of-type {
-		@include span-columns(5);
-		@include shift(1);
+			@include span-columns(5);
 		}
 		> div:last-of-type {
 			@include span-columns(5);
+			padding: 2em 0;
 		}
 		object {
 			max-width: 375px;
@@ -771,12 +793,33 @@ section#about-story {
 			display: block;
 			margin: 0 auto;
 		}
+		> div {
+			@include media($md) {
+				@include fill-parent;
+				margin: 2em 0;
+			}
+		}		
 		@include media($md) {
 			> div:first-of-type, > div:last-of-type {
 				@include fill-parent;
-				@include shift(0);
+				margin: 1em 0 !important;
 			}
 		}
+		&:nth-of-type(2) {
+			div:first-of-type {
+				@include shift(6);
+				@include omega();
+			}
+			div:last-of-type {
+				@include shift(-10);
+			}
+		}
+		&:last-of-type {
+			div:last-of-type {
+				padding-bottom: 0;
+				margin-bottom: 0 !important;
+			}
+		}	
 	}
 }
 
@@ -785,6 +828,7 @@ section#about-us {
 	> div {
 		@include span-columns(10);
 		@include shift(1);
+		text-align: center;
 		@include media($md) {
 			@include shift(0);
 			@include fill-parent;
@@ -1014,9 +1058,9 @@ section#contact-form {
 		}
 	}
 	aside {
-		@include span-columns(5);
+		@include span-columns(6);
+		@include clearfix;
 		@include shift(1);
-		@include omega();
 		@include media($md) {
 			@include shift(0);
 			@include fill-parent;
@@ -1028,6 +1072,15 @@ section#contact-form {
 				margin-bottom: 10px;
 			}
 		}
+	}
+}
+
+div#success {
+	display: none;
+	i {
+		color: $primary-gold;
+		font-size: modular-scale(5);
+		margin: 0 0 0.3em 0;
 	}
 }
 

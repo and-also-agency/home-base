@@ -111,7 +111,8 @@ nav {
 					text-align: center;
 					align-items: center;
 					margin: 0;
-					@include span-columns(12);
+					@include fill-parent;
+					border: none;
 				}
 			}
 			&:nth-child(2) {
@@ -152,6 +153,7 @@ nav {
     cursor: pointer;
     background: transparent;
     border: 1px solid transparent;
+    border-color: $primary-gold;
     border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
     border-image-slice: 1;
     z-index: 9999999999999;
@@ -159,6 +161,11 @@ nav {
     display: block;
     right: 30px;
     overflow: hidden;
+    @include media($sm) {
+    	border: none;
+    	right: 5px;
+    	margin: 25px auto;
+    }
     * {
     	transition: all 0.25s ease-in-out;
     }
@@ -166,6 +173,8 @@ nav {
     	position: absolute;
     	height: 100%;
     	width: 100%;
+    	outline: none;
+    	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     	span {
     		width: 40px;
     		height: 1px;
@@ -181,6 +190,10 @@ nav {
     		}
     		&:nth-child(3) {
     			transition-delay: 0.75s;
+    		}
+    		@include media($sm) {
+    			width: 30px;
+    			left: 20px;
     		}
     	}
     }
