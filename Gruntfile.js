@@ -95,7 +95,7 @@ module.exports = function( grunt ) {
     sass: {
       app: {
         options: {
-          style: 'expanded'
+          style: 'compressed'
         },
         files: {
           '<%= project.css %>/main.css' : '<%= project.scss %>/main.scss'
@@ -111,7 +111,7 @@ module.exports = function( grunt ) {
       options: {
         map: true,
         processors: [
-          require('autoprefixer')({browsers: 'last 4 versions'})
+          require('autoprefixer')({browsers: 'last 4 version'})
         ]
       },
       dist: {
