@@ -376,11 +376,11 @@ section#masthead {
 	@include outer-container(100%);
 	color: $almost-white;
 	padding: 0;
-	background-attachment: fixed !important; 
+	// background-attachment: fixed !important; 
 	&.home {
 		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/home-bg.jpg') center top;
 		background-size: cover;		
-	}	
+	}
 	&.about {
 		background: linear-gradient(rgba($primary-gold, 0.15), rgba($darker-gray, 0.1)), url('../img/about-bg.jpg') center center;
 		background-size: cover;		

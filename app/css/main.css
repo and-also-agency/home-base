@@ -829,6 +829,7 @@ footer::after {
 }
 footer a {
   color: #5b5b58;
+  display: inline-block;
 }
 footer a:hover {
   color: #baaf91;
@@ -841,15 +842,48 @@ footer div {
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
+  color: #5b5b58;
+  line-height: 40px;
 }
 footer div:last-child {
   margin-right: 0;
 }
-footer div:nth-child(2) {
-  line-height: 0;
-}
 footer div object {
   width: 60px;
+  display: block;
+}
+footer div:first-of-type {
+  margin-left: 34.11922%;
+  line-height: 0;
+}
+@media screen and (max-width: 991px) {
+  footer div:first-of-type {
+    margin-left: 0%;
+  }
+}
+footer div:nth-of-type(2) {
+  margin-left: -68.23843%;
+  line-height: 31px;
+}
+@media screen and (max-width: 991px) {
+  footer div:nth-of-type(2) {
+    margin-left: 0%;
+  }
+}
+footer div:last-of-type {
+  margin-right: 0;
+  line-height: 31px;
+}
+@media screen and (max-width: 991px) {
+  footer div:last-of-type {
+    margin-left: 0%;
+  }
+}
+@media screen and (max-width: 991px) {
+  footer div {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
 footer ul {
   margin: 0;
@@ -862,6 +896,13 @@ footer ul li {
 }
 footer ul li:focus {
   outline: none;
+}
+footer ul li:last-of-type {
+  margin-right: 0;
+}
+footer span {
+  font-size: 0.8em;
+  line-height: 0;
 }
 
 /* Hides everything pushed outside of it */
@@ -1198,6 +1239,12 @@ button {
 }
 button:focus {
   outline: 0;
+}
+@media screen and (max-width: 991px) {
+  button {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 [type='submit'] {
@@ -1536,7 +1583,6 @@ section#masthead {
   margin-right: auto;
   color: #f3f3f2;
   padding: 0;
-  background-attachment: fixed !important;
 }
 section#masthead::after {
   clear: both;
@@ -1586,7 +1632,7 @@ section#masthead div:last-child {
     display: block;
     margin-right: 2.35765%;
     width: 100%;
-    padding: 150px 3% 100px;
+    padding: 150px 30px 100px;
   }
   section#masthead div:last-child {
     margin-right: 0;
@@ -1629,6 +1675,12 @@ section#home-detail article {
 }
 section#home-detail article:last-child {
   margin-right: 0;
+}
+@media screen and (max-width: 991px) {
+  section#home-detail article {
+    width: 100%;
+    margin-left: 0%;
+  }
 }
 section#home-detail aside {
   float: left;
@@ -1754,6 +1806,11 @@ section#home-detail ul a.last {
 section#home-detail ul a.last h5 {
   color: #baaf91;
 }
+@media screen and (max-width: 767px) {
+  section#home-detail ul a.last h5 {
+    margin-bottom: 0;
+  }
+}
 section#home-detail ul a.last h5 {
   transition: -webkit-transform 0.4s ease;
   transition: transform 0.4s ease;
@@ -1814,6 +1871,11 @@ section#home-work h2 {
       -ms-user-select: none;
           user-select: none;
 }
+@media screen and (max-width: 991px) {
+  section#home-work h2 {
+    display: none;
+  }
+}
 section#home-work article {
   position: relative;
   min-height: 500px;
@@ -1823,9 +1885,43 @@ section#home-work article {
   display: block;
   z-index: 2;
 }
+@media screen and (max-width: 767px) {
+  section#home-work article h4 {
+    float: left;
+    display: block;
+    margin-right: 7.42297%;
+    width: 73.14426%;
+  }
+  section#home-work article h4:last-child {
+    margin-right: 0;
+  }
+}
 @media screen and (max-width: 991px) {
   section#home-work article {
     width: 100%;
+  }
+  section#home-work article a {
+    background-color: rgba(26, 26, 25, 0.9);
+  }
+  section#home-work article h4 {
+    opacity: 1;
+    -webkit-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+            transform: translateY(8px);
+    transition-delay: 0.25s;
+  }
+  section#home-work article span {
+    opacity: 1;
+    -webkit-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+            transform: translateY(8px);
+    transition-delay: 0.3s;
+  }
+  section#home-work article:before, section#home-work article:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
   }
 }
 section#home-work article:first-of-type {
@@ -1861,6 +1957,12 @@ section#home-testimonial > div:last-child {
 }
 section#home-testimonial > div blockquote {
   font-size: 1.5625em;
+}
+@media screen and (max-width: 991px) {
+  section#home-testimonial > div blockquote {
+    width: 100%;
+    margin-left: 0%;
+  }
 }
 section#home-testimonial > div p {
   font-size: 0.75em;
@@ -1926,6 +2028,8 @@ section#bottom-cta a:hover h2:after {
 @media screen and (max-width: 991px) {
   section#bottom-cta a {
     padding: 5em 0;
+    width: 100%;
+    margin-left: 0%;
   }
 }
 section#bottom-cta a:before {
@@ -2044,6 +2148,11 @@ section#about-expertise ul li a {
   background-size: 100% 200%;
   transition: all 0.4s ease-out;
 }
+@media screen and (max-width: 991px) {
+  section#about-expertise ul li a {
+    line-height: 25px;
+  }
+}
 section#about-expertise ul li a:after {
   content: '+';
   position: absolute;
@@ -2146,13 +2255,8 @@ section#about-story article object {
 }
 @media screen and (max-width: 991px) {
   section#about-story article > div:first-of-type, section#about-story article > div:last-of-type {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
     width: 100%;
-  }
-  section#about-story article > div:first-of-type:last-child, section#about-story article > div:last-of-type:last-child {
-    margin-right: 0;
+    margin-left: 0%;
   }
 }
 
@@ -2176,11 +2280,18 @@ section#about-us > div {
 section#about-us > div:last-child {
   margin-right: 0;
 }
+@media screen and (max-width: 991px) {
+  section#about-us > div {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 section#about-us article {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
+  width: 31.76157%;
+  margin-left: 8.5298%;
 }
 section#about-us article:last-child {
   margin-right: 0;
@@ -2189,6 +2300,18 @@ section#about-us article::after {
   clear: both;
   content: "";
   display: block;
+}
+@media screen and (max-width: 991px) {
+  section#about-us article {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+@media screen and (max-width: 991px) {
+  section#about-us article div {
+    text-align: center;
+    padding-bottom: 35px;
+  }
 }
 section#about-us figure {
   position: relative;
@@ -2415,6 +2538,12 @@ section#contact-form > div {
 section#contact-form > div:last-child {
   margin-right: 0;
 }
+@media screen and (max-width: 991px) {
+  section#contact-form > div {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 section#contact-form article {
   float: left;
   display: block;
@@ -2424,6 +2553,12 @@ section#contact-form article {
 }
 section#contact-form article:last-child {
   margin-right: 0;
+}
+@media screen and (max-width: 991px) {
+  section#contact-form article {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 section#contact-form aside {
   float: left;
@@ -2435,6 +2570,19 @@ section#contact-form aside {
 }
 section#contact-form aside:last-child {
   margin-right: 0;
+}
+@media screen and (max-width: 991px) {
+  section#contact-form aside {
+    margin-left: 0%;
+    width: 100%;
+    margin-bottom: 70px;
+  }
+}
+@media screen and (max-width: 991px) {
+  section#contact-form aside div {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 section#splash {
