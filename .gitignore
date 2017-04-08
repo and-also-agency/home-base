@@ -2,3 +2,6 @@ app/_lib
 node_modules
 *.scssc
 error_log
+main.css
+main.css.map
+dist

@@ -51,7 +51,7 @@
 			opacity: 0;		
 		}
     }
-    &:hover {
+    &:hover:enabled {
 		#{$child} {
 			color: $hover-color;
 			&:after {

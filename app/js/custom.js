@@ -110,8 +110,9 @@ $('input, textarea').on('input', function() {
 /* attach a submit handler to the form */
 $('#form').submit(function(e) {
 
-	e.preventDefault();
+	// e.preventDefault();
 	$('#submit').attr("disabled", "disabled");
+	$('#submit span').html('<div class="typing_loader"></div>');
 
 	data = {};
 

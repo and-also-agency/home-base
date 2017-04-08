@@ -23,7 +23,6 @@ footer {
 		}
 		object {
 			width: 60px;
-			display: block;
 		}
 		&:first-of-type {
 			@include shift(4);
@@ -36,7 +35,7 @@ footer {
 			@include shift(-8);
 			line-height: 31px;
 			@include media ($md){
-				@include shift(0);
+				margin: 1.5em 0 0 0;
 			}
 		}
 		&:last-of-type {

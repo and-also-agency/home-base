@@ -107,17 +107,17 @@
           <i class="fa fa-thumbs-o-up"></i>
           <p>Got it! We'll get back to you soon.</p>
         </div>
-        <form id="form" action="/bin/mail.php" method="POST">
+        <form id="form" action="/bin/mail.php" method="POST" autocomplete="off">
           <div>
-            <input type="text" placeholder="Name" name="name" id="name">
+            <input required type="text" placeholder="Name" name="name" id="name">
             <label for="name">Name</label>
           </div>
           <div>
-            <input type="text" placeholder="Company" name="company" id="company">
+            <input required type="text" placeholder="Company" name="company" id="company">
             <label for="company">Company</label>
           </div>
           <div>
-            <input type="text" placeholder="Email" name="email" id="email">
+            <input required type="email" placeholder="Email" name="email" id="email">
             <label for="email">Email</label>
           </div>
           <div class="check-container">
