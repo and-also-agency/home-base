@@ -869,11 +869,23 @@ section#about-expertise {
 section#about-story {
 	@include outer-container(100%);
 	background: $almost-white;
+	position: relative;
 	header {
 		@include row();
 		> div {
 			@include fill-parent;
 			text-align: center;
+		}
+	}
+	span#caption {
+		position: absolute;
+		right: 30px;
+		top: 30px;
+		a {
+			font-size: modular-scale(-2);
+		}
+		@include media($sm) {
+			display: none;
 		}
 	}
 	article {
