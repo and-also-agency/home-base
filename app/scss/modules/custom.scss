@@ -516,20 +516,33 @@ section#masthead {
 		background-size: cover;		
 	}
 	header {
-		position: absolute;
-		left: 3%;
-		top: 48px;
-		@include media($md) {
-			left: 30px;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 110px;
+		padding: 20px 30px;
+		z-index: 9999;
+		transition: all 0.3s ease-in-out;
+		// @include media($md) {
+		// 	left: 30px;
+		// }
+		&.smaller {
+			height: 70px;
+			padding: 0 30px;
+			background-color: rgba($darker-gray, 0.8);
 		}
 		object {
 			width: 60px;
+			height: 70px;
 		}
 		a {
 			display: inline-block;
+			height: 70px;
+			line-height: 70px;
 		}
 	}
-	div {
+	> div {
 		@include span-columns(6);
 		padding: 200px 3%;
 		@include media($md) {

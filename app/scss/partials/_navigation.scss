@@ -148,8 +148,6 @@ nav {
 #menu-toggle {
 	width: 70px;
 	height: 70px;
-	margin: 30px auto;
-    // position: relative;
     cursor: pointer;
     background: transparent;
     border: 1px solid transparent;
@@ -157,14 +155,14 @@ nav {
     border-image: linear-gradient(45deg, $primary-gold 0%, $secondary-gold 50%, $primary-gold 100%);
     border-image-slice: 1;
     z-index: 9999999999999;
-    position: fixed;
-    display: block;
-    right: 30px;
+    display: inline-block;
+    float: right;
     overflow: hidden;
+    position: relative;
     @include media($sm) {
     	border: none;
-    	right: 5px;
-    	margin: 25px auto;
+    	// right: 5px;
+    	// margin: 25px auto;
     }
     * {
     	transition: all 0.25s ease-in-out;
