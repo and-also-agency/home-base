@@ -9,6 +9,7 @@ setTimeout( function() { scroll(0,0); }, 1);
 $(function() {
 
 	// Toggle navigation
+
 	$('#menu-toggle').click(function() {
 		// $(this).toggleClass('open');
 		if ($('body').hasClass('show-nav')) {
@@ -23,6 +24,18 @@ $(function() {
 		}
 		// console.log("you clicked me");
 		return false;
+	});
+
+	// Mobile scroll nav
+
+	$(window).on('scroll', function(){
+		var scroll = $(window).scrollTop(); 
+		var mastheadHeight = $('#masthead').outerHeight() + 10;   
+	    if (scroll >= mastheadHeight && $(window).width() < 768) {				
+			$('header').addClass('smaller');
+	    } else if(scroll <= mastheadHeight) {
+			$('header').removeClass('smaller');
+		}
 	});
 
 	// Word looping

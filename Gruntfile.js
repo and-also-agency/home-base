@@ -142,7 +142,42 @@ module.exports = function( grunt ) {
           livereload: true
         },
       }
-    }
+    },
+
+    //====================//
+    // Image minificaiton //
+    //====================//
+    imagemin: {
+        png: {
+          options: {
+            optimizationLevel: 7
+          },
+          files: [
+            {
+              expand: true,
+              cwd: '<%= project.app %>/img/', // cwd is 'current working directory'
+              src: ['**/*.png'],
+              dest: '<%= project.prod %>/img/',
+              ext: '.png'
+            }
+          ]
+        },
+        jpg: {
+          options: {
+            progressive: true
+          },
+          files: [
+            {
+              expand: true, // tell Grunt where to find our images and where to export them to.
+              cwd: '<%= project.app %>/img/',
+              src: ['**/*.jpg'],
+              dest: '<%= project.prod %>/img/',
+              ext: '.jpg'
+            }
+          ]
+        }
+      }
+
   });
 
   //====================//
@@ -153,7 +188,9 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  // grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   
   // grunt.loadNpmTasks('grunt-assemble');
 
@@ -166,12 +203,16 @@ module.exports = function( grunt ) {
     'watch'
   ]);
 
+  grunt.registerTask('minimages', [
+    'imagemin'
+  ]);
+
   grunt.registerTask('deploy', [
     'copy:deploy'
   ]);
 
   //== FTP entire staging DIR to staging ==//
-  grunt.registerTask('dev-ftp', [
-    'ftp-deploy'
-  ]);
+  // grunt.registerTask('dev-ftp', [
+  //   'ftp-deploy'
+  // ]);
 };
