@@ -28,9 +28,9 @@ $(function() {
 
 	// Mobile scroll nav
 
-	$(window).on('scroll', function(){
+	$(window).on('scroll', function() {
 		var scroll = $(window).scrollTop(); 
-		var mastheadHeight = $('#masthead').outerHeight() + 10;   
+		var mastheadHeight = $('#masthead').outerHeight() + 5;   
 	    if (scroll >= mastheadHeight && $(window).width() < 768) {				
 			$('header').addClass('smaller');
 	    } else if(scroll <= mastheadHeight) {
