@@ -405,7 +405,7 @@ button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submi
 		height: 100%;
 		display: block;
 		text-align: center;
-		background-color: rgba($darker-gray, 0.5);
+		background-color: rgba($darker-gray, 0.2);
 		@include media($sm) {
 			background: rgba($darker-gray, 0.5) !important;
 			> * {
@@ -530,7 +530,7 @@ section#masthead {
 		&.smaller {
 			height: 70px;
 			padding: 0 30px;
-			background-color: rgba($darker-gray, 0.8);
+			background-color: rgba($darker-gray, 0.9);
 		}
 		object {
 			width: 60px;
@@ -550,6 +550,23 @@ section#masthead {
 			padding: 150px 30px 100px;
 		}
 	}
+	// h1 span {
+	// 	position: relative;
+	// 	z-index: 1;
+	// 	&:after {
+	// 		content: '';
+	// 		display: block;
+	// 		position: absolute;
+	// 		bottom: 1%;
+	// 		left: 0px;
+	// 		right: 0px;
+	// 		height: 7px;
+	// 		background: #50c0c4;
+	// 		opacity: 0.9;
+	// 		z-index: -1;
+	// 		border-radius: 4px;
+	// 	}
+	// }
 	p {
 		font-size: modular-scale(2);
 	}
@@ -712,7 +729,8 @@ section#home-work {
 section#home-testimonial {
 	@include outer-container();
 	> div {
-		@include span-columns(12);
+		@include span-columns(10);
+		@include shift(1);
 		text-align: center;
 		blockquote {
 			font-size: modular-scale(1);

@@ -161,6 +161,7 @@ nav {
     position: relative;
     @include media($sm) {
     	border: none;
+    	margin-right: -20px;
     	// right: 5px;
     	// margin: 25px auto;
     }
