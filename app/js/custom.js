@@ -41,7 +41,7 @@ $(function() {
 	// Word looping
 
 	i = 0;
-	skillArray = ['email.', 'analytics.', 'automation.', 'mobile.', 'advertising.', 'pay-per-click.', 'e-commerce.', 'WordPress.'];
+	skillArray = ['social media strategies.', 'analytics.', 'automation.', 'pay-per-click campaigns.', 'e-commerce sites.', 'WordPress sites.', 'print materials.'];
 	setInterval(function() {
 		i++;
 		$('#looper').fadeOut(500, function() {

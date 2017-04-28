@@ -62,6 +62,12 @@ nav {
     	display: block;
     	margin-bottom: 30px;
     }
+    a[href^="mailto:"] {
+    	color: $almost-white;
+    	&:hover {
+    		color: $almost-white;
+    	}
+	}    
     ul.social {
     	font-size: modular-scale(1);
     	li {
@@ -120,8 +126,6 @@ nav {
 				@include media($md) {
 					display: none;
 				}
-			}
-			a, h5 {
 			}
 		}
 	}

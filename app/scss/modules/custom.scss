@@ -187,6 +187,18 @@ object {
 		@include media($md) {
 			height: auto;
 		}
+		@include media(min-width 992px max-width 1100px) {
+			max-height: 450px;
+		}
+		@include media(min-width 1101px max-width 1200px) {
+			max-height: 475px;
+		}		
+		@include media(min-width 1201px max-width 1300px) {
+			max-height: 500px;
+		}
+		@include media(min-width 1301px max-width 1400px) {
+			max-height: 550px;
+		}		
 	}
 }
 
@@ -518,8 +530,6 @@ section#masthead {
 	header {
 		position: fixed;
 		width: 100%;
-		top: 0;
-		left: 0;
 		height: 110px;
 		padding: 20px 30px;
 		z-index: 9999;
@@ -538,8 +548,17 @@ section#masthead {
 		}
 		a {
 			display: inline-block;
+			position: relative;
 			height: 70px;
 			line-height: 70px;
+			&:after {
+				content: ""; 
+				position: absolute; 
+				top: 0; 
+				right: 0; 
+				bottom: 0; 
+				left: 0;				
+			}
 		}
 	}
 	> div {
@@ -653,7 +672,16 @@ section#home-detail {
 				h5 {
 					color: $darker-gray;
 				}
-			}		
+			}
+			@include media($md) {
+				border-bottom: 1px solid $primary-gold;
+				i {
+					color: $primary-gold;
+				}
+				h5 {
+					color: $darker-gray;
+				}
+			}	
 		}
 		h5 {
 			color: $primary-gray;
@@ -687,7 +715,7 @@ section#home-work {
 		left: 10px;
 		text-align: center;
 		display: inline-block;
-		color: $primary-gold;
+		color: rgba($almost-white, 0.9);
 		top: 55px;
 		user-select: none;
 		@include media ($md) {
@@ -715,6 +743,7 @@ section#home-work {
 		}
 		&:first-of-type {
 			background: url('../img/work/home-cor.jpg');
+			background-position: 50%;
 			h2 {
 				right: 10px;
 				left: auto;
@@ -722,6 +751,7 @@ section#home-work {
 		}
 		&:last-of-type {
 			background: url('../img/work/home-coresite.jpg');
+			background-position: 50%;
 		}		
 	}	
 }
@@ -752,7 +782,7 @@ section#home-testimonial {
 section#bottom-cta {
 	padding: 0;
 	@include outer-container(100%);
-	background: $primary-gold;
+	background: linear-gradient(70deg, $primary-gold, $secondary-gold);
 	text-align: center;
 	position: relative;
 	div {
@@ -776,15 +806,15 @@ section#bottom-cta {
 			right: 0;
 			width: 110%;
 			height: 100%;
-			transform: translateY(100%);
-			background: $secondary-gold;
+			// transform: translateY(100%);
+			background: linear-gradient(180deg, lighten($primary-gold, 2%), lighten($secondary-gold, 2%));
 			opacity: 0;
-			transition: transform 0.5s ease, opacity 0.3s ease;			
-		}		
+			transition: opacity 0.5s ease;			
+		}
 		&:hover {
 			&:before {
-				transform: translateY(0);
-				opacity: 1;
+				// transform: translateY(0);
+				opacity: 0.9;
 			}
 		}		
 	}
