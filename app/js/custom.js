@@ -41,28 +41,29 @@ $(function() {
 	// Word looping
 
 	i = 0;
-	skillArray = ['social media strategies.', 'analytics.', 'automation.', 'pay-per-click campaigns.', 'e-commerce sites.', 'WordPress sites.', 'print materials.'];
+	skillArray = ['social media strategies.', 'pay-per-click campaigns.', 'e-commerce sites.', 'marketing automation.', 'WordPress sites.', 'print materials.'];
 	setInterval(function() {
-		i++;
 		$('#looper').fadeOut(500, function() {
 			$(this).text(skillArray[i % skillArray.length]).fadeIn(500);
+			i++;
 		});
 	}, 3000);
 
 	// Splash page
 
-	$('#splash-content').on('mouseover click touch', function(e) {
-		console.log('You clicked me');
-		e.preventDefault();
-		$(this).closest('section').addClass('splash-hover');
-	});
+	// $('#splash-content').on('mouseover click touch', function(e) {
+	// 	e.preventDefault();
+	// 	$(this).closest('section').addClass('splash-hover');
+	// });
+
+	// Accordion 
 
 	$('.js-accordion-trigger').bind('click', function(e){
 		$(this).blur();
-	  $(this).parent().find('.submenu').slideToggle(400);  // apply the toggle to the ul
-	  $(this).parent().toggleClass('is-expanded');
-	  $(this).parent().siblings().removeClass('is-expanded').find('.submenu').slideUp(200);
-	  e.preventDefault();
+		$(this).parent().find('.submenu').slideToggle(400);  // apply the toggle to the ul
+		$(this).parent().toggleClass('is-expanded');
+		$(this).parent().siblings().removeClass('is-expanded').find('.submenu').slideUp(200);
+		e.preventDefault();
 	});
 
 	// Navigate and scroll
@@ -79,10 +80,22 @@ $(function() {
     // If we have a hash location do stuff
     if(window.location.hash) {
 
+    	// calculate distance
+    	elementOffset = $(window.location.hash).offset().top;
+    	console.log(elementOffset);
+		msPerPixel = 1;
+		minScrollTime = 250;
+		maxScrollTime = 750;
+		scrollTime = elementOffset * msPerPixel;
+		scrollTime = Math.min(scrollTime, maxScrollTime);
+		scrollTime = Math.max(scrollTime, minScrollTime);
+
         // smooth scroll to the anchor id
-        $('html, body').animate({
-            scrollTop: $(window.location.hash).offset().top + 'px'
-        }, 1500, 'swing');
+        setTimeout(function() {
+			$('html, body').stop().animate({
+				scrollTop: $(window.location.hash).offset().top
+				}, scrollTime, 'swing');
+			}, 200);
     };     
 
 });
@@ -179,6 +192,15 @@ postFormError = function () {
 
 postComplete = function () {
     "use strict";
+
+	// push pageview to GA
+	ga('send', 'pageview', location.pathname+'/thank-you');
+
+	// push lead to FB
+	fbq('track', 'Lead', {
+	  content_name: location.pathname+'/thank-you'
+	});
+
     setTimeout(function() {
     $('#submit').removeAttr('disabled');
     }, 2000);
