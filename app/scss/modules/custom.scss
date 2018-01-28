@@ -442,17 +442,17 @@ button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submi
 		display: block;
 		text-align: center;
 		background-color: rgba($primary-navy, 0.2);
-		@include media($sm) {
-			background: rgba($primary-navy, 0.5) !important;
-			> * {
-				display: none !important;
-			}
-		}
+		// @include media($sm) {
+		// 	background: rgba($primary-navy, 0.5) !important;
+		// 	> * {
+		// 		display: none !important;
+		// 	}
+		// }
 	}
 	h4 {
 		padding-top: 10em;
 		margin-bottom: 0.2em;
-		color: $primary-gold;		
+		color: $primary-gold;	
 	}
 	span {
 		color: $almost-white;
@@ -486,9 +486,9 @@ button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submi
 		opacity: 0;
 		transition: opacity 0.45s, transform 0.45s;	
 		pointer-events: none;
-		@include media($sm) {
-			display: none;
-		}		
+		// @include media($sm) {
+		// 	display: none;
+		// }		
 	}
 	&:before {
 		border-top: 1px solid $primary-gold;
@@ -501,6 +501,25 @@ button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submi
 		transform: scale(1,0);
 	}
 	&:hover, &:focus {
+		a {
+			background-color: rgba($primary-navy, 0.9);
+		}
+		h4 {
+			opacity: 1;
+			transform: translateY(8px);
+			transition-delay: 0.25s;
+		}
+		span {
+			opacity: 1;
+			transform: translateY(8px);
+			transition-delay: 0.3s;
+		}
+		&:before, &:after {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	@include media($md) {
 		a {
 			background-color: rgba($primary-navy, 0.9);
 		}
@@ -792,7 +811,7 @@ section#home-work {
 			height: 300px;
 		}
 		&:first-of-type {
-			background: url('../img/work/home-cor.jpg');
+			background: url('../img/work/home-coresite.jpg');
 			background-position: 50%;
 			h2 {
 				right: 10px;
@@ -800,7 +819,7 @@ section#home-work {
 			}
 		}
 		&:last-of-type {
-			background: url('../img/work/home-stroke.jpg');
+			background: url('../img/work/home-till.jpg');
 			background-position: 50%;
 		}		
 	}	
