@@ -1121,6 +1121,13 @@ section#about-us {
 			@include fill-parent;
 		}
 	}
+	main {
+		@include row();
+		margin-bottom: 40px;
+		@include media ($md) {
+			margin-bottom: 0;
+		}
+	}
 	article {
 		@include span-columns(5);
 		@include shift(1);
