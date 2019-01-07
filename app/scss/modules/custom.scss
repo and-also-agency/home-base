@@ -702,6 +702,7 @@ section#home-detail {
 		margin: 0 50px;	
 		@include media($sm) {
 			margin: 0;
+			box-shadow: none;
 		}	
 		li {
 			display: flex;
@@ -821,7 +822,7 @@ section#home-work {
 			min-height: 700px;
 		}
 		&:first-of-type {
-			background: url('../img/work/home-coresite.jpg');
+			background: url('../img/work/home-edgecore.jpg');
 			background-position: 50%;
 			h2 {
 				right: 10px;
@@ -829,7 +830,7 @@ section#home-work {
 			}
 		}
 		&:last-of-type {
-			background: url('../img/work/home-till.jpg');
+			background: url('../img/work/home-threatx.jpg');
 			background-position: 50%;
 		}		
 	}	
